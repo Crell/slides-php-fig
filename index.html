@@ -51,6 +51,13 @@
       .struck {
         text-decoration: line-through;
       }
+
+      .vcenter {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+
     </style>
 
   </head>
@@ -81,10 +88,121 @@
             </ul>
           </div>
         </section>
+        <section>
+          <section data-transition="slide-in fade-out">
+            <h2>What is PHP-FIG?</h2>
+            <a href="https://ninjagrl.com/artwork/fig"><img src="assets/fig-ninjagrlstuff.jpg" alt="The Framework Interoperability Group" data-credit="https://ninjagrl.com/artwork/fig" /></a>
+            <div>(Credit: <a href="https://twitter.com/ninjagrlstuff">@ninjagrlstuff</a>)</div>
+          </section>
+          <section data-background="assets/un-flag.svg" data-transition="fade-in fade-out" data-credit="'Flag of the United Nations' by Wilfried Huss / Anonymous - Flag of the United Nations from the Open Clip Art website. Modifications by Denelson83, Zscout370 and Madden. Official construction sheet here.United Nations (1962) The United Nations flag code and regulations, as amended November 11, 1952, New York OCLC: 7548838.. Licensed under Public Domain via Commons - https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Nations.svg#/media/File:Flag_of_the_United_Nations.svg">
+            <div class="vcenter">
+              <img src="assets/php-logo.svg" alt="PHP" data-credit="https://commons.wikimedia.org/wiki/File:PHP-logo.svg" />
+            </div>
+          </section>
+          <section data-transition="fade-in">
+            <blockquote>
+              We're a group of established PHP projects whose goal is to talk about commonalities between our projects and find ways we can work better together.
+            </blockquote>
+            <p>&mdash;PHP-FIG website</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>In the beginning,<br />PHP was without form and void...</h2>
+          </section>
+          <section>
+            <h2>The PHP Standards Group</h2>
+            <h3>php|tek, May 2009</h3>
+          </section>
+          <section>
+            <q>We're going to have these namespace things,<br />let's use them the same way for a change!</q>
+          </section>
+          <section>
+            <img src="assets/smoke-filled-room.jpg" alt="The smoke filled room where FIG was founded." data-credit="http://www.flickr.com/photos/poagao/23385812/" />
+            <p class="fragment">(Smoke not guaranteed)</p>
+            <aside class="notes">
+              <ul>
+                <li>Not smoky, was after lunch, was light outside...</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>PSR-0</h2>
+            <ul>
+              <li class="fragment">One autoloading standard/convention</li>
+              <li class="fragment">Java-inspired</li>
+              <li class="fragment">PEAR-inspired</li>
+              <li class="fragment">Rudimentary, but enough</li>
+            </ul>
+          </section>
+          <section>
+            <h2>PSR-0</h2>
+            <p class="fragment" style="margin-top: 1em;"><code>&lt;vendor&gt;\Package\Whatever</code></p>
 
+            <pre class="fragment"><code class="php">new \Some\Class\Name_Here();</code></pre>
+            <pre class="fragment"><code class="php">include_once $some_root . '/Some/Class/Name/Here.php';</code></pre>
+
+            <pre class="fragment"><code class="php" data-trim>
+new Guzzle\Http\Client();
+// require('/some/root/path/Guzzle/Http/Client.php');
+            </code></pre>
+          </section>
+          <section>
+            <h1>Worst</h1>
+            <h1 class="fragment">Launch</h1>
+            <h1 class="fragment">Ever</h1>
+          </section>
+          <section>
+            <p>Thrown off lists.php.net, moved to Google Groups</p>
+            <p class="fragment">Admitted a few new projects</p>
+            <p class="fragment">Slept through 2010</p>
+            <p class="fragment">Debated a lot in 2011</p>
+            <aside class="notes">
+              <ul>
+                <li>4 messages in all of 2010</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>2012</h2>
+            <p class="fragment">Renamed to Framework Interoperability Group</p>
+            <p class="fragment bigtext">FIG</p>
+            <p class="fragment">Actually became useful!</p>
+            <aside class="notes">
+              <ul>
+                <li>Not just frameworks</li>
+                <li>PHP Interop Group = PIG</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <p>A real process!</p>
+            <p class="fragment">Only took until 2013...</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>So what does FIG, um, do?</h2>
+          </section>
+          <section>
+            <h2>PSR</h2>
+            <p class="bigtext">PHP Standard Recommendation</p>
+            <aside class="notes">
+              <ul>
+                <li>We discuss and vote on PSRs</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+
+          </section>
+        </section>
 
         <div style="display:none">
 
+          - Intro / What is FIG
+          -- UN of PHP
+          -- Collaboration venue
           - History (steal from Rennaissance)
           -- phpTek 2009
           -- Smoke filled room story
