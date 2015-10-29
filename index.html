@@ -58,11 +58,7 @@
         align-content: center;
       }
 
-      div + div {
-        margin-top: 1em;
-      }
-
-      pre + p {
+      .reveal pre + p {
         margin-top: 1em;
       }
 
@@ -262,7 +258,47 @@ new Guzzle\Http\Client();
         <section>
           <section>
             <h3>Autoloading</h3>
-            <h3>PSR-4</h3>
+            <h3><del>PSR-0</del> PSR-4</h3>
+          </section>
+          <section>
+            <div>
+              <h3>PSR-0</h3>
+              <pre><code class="php" data-trim>
+new \Crell\HtmlModel\Head\Link_Element();
+// Results in:
+include_once $some_root . '/Crell/HtmlModel/Head/Link/Element.php';
+              </code></pre>
+            </div>
+            <div style="margin-top: 1em;" class="fragment">
+              <h3>PSR-4</h3>
+              <pre><code class="php" data-trim>
+new \Crell\HtmlModel\Head\Link_Element();
+// Results in:
+include_once $some_root . '/Head/Link_Element.php';
+              </code></pre>
+            </div>
+            <p class="fragment">The prefix is externally configured</p>
+          </section>
+          <section>
+            <h3>Composer</h3>
+            <pre><code class="json" data-trim>
+{
+    "name": "crell/htmlmodel",
+    "autoload": {
+        "psr-4": {
+            "Crell\\HtmlModel\\": "src"
+        }
+    }
+}
+            </code></pre>
+            <p class="fragment">Always use PSR-4, not PSR-0.</p>
+            <p class="fragment">(<a href="https://github.com/Crell/HtmlModel/">Shameless Plug for HtmlModel</a>)</p>
+            <aside class="notes">
+              <ul>
+                <li>PSR-4 for consistent underscore handling</li>
+                <li>Prefix optional</li>
+              </ul>
+            </aside>
           </section>
         </section>
         <section>
