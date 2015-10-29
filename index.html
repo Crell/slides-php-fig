@@ -221,6 +221,11 @@ new Guzzle\Http\Client();
               <h3>Approved!</h3>
               <p>Profit!!1!</p>
             </div>
+            <aside class="notes">
+              <ul>
+                <li>Yes, approval order not numeric order</li>
+              </ul>
+            </aside>
           </section>
           <section>
             <h3>Staff</h3>
@@ -399,6 +404,43 @@ catch (\Exception $e) {
   $logger->error("Well that escalated quickly.", ['exception' => $e]);
 }
             </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>HTTP Messages</h3>
+            <h4>PSR-7</h4>
+            <p class="fragment bigtext">Go to Beau's section next!</p>
+            <aside class="notes">
+              <ul>
+                <li>Most important PSR to date</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>CGI sucks</h2>
+          </section>
+          <section>
+            <h2><a href="https://en.wikipedia.org/wiki/Common_Gateway_Interface">Common Gateway Interface</a></h2>
+            <ul>
+              <li class="fragment">NCSA, 1993</li>
+              <li class="fragment">"specification for calling command line executables"</li>
+              <li class="fragment">Pass environment variables to script</li>
+              <li class="fragment"><code>$_SERVER</code></li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>Older than many people in this room</li>
+                <li>Why is $_SERVER so weird?  CGI.</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h3>Super globals!</h3>
+            <img src="assets/picard-riker-facepalm.jpg" alt="Picard-Riker Face Palm" />
+          </section>
+          <section>
+            <p class="bigtext">HTTP Messages should be objects!</p>
           </section>
         </section>
 
