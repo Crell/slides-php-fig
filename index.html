@@ -58,6 +58,14 @@
         align-content: center;
       }
 
+      div + div {
+        margin-top: 1em;
+      }
+
+      pre + p {
+        margin-top: 1em;
+      }
+
     </style>
 
   </head>
@@ -187,7 +195,7 @@ new Guzzle\Http\Client();
           <section>
             <h2>PSR</h2>
             <p class="bigtext">PHP Standard Recommendation</p>
-            <p class="fragment">Scope: Any definable standard or convention that improves collaboration and interoperability.</p>
+            <blockquote class="fragment">Scope: Any definable standard or convention that improves collaboration and interoperability.</blockquote>
             <aside class="notes">
               <ul>
                 <li>We discuss and vote on PSRs</li>
@@ -232,25 +240,129 @@ new Guzzle\Http\Client();
             </dl>
           </section>
         </section>
+        <section class="l-2up">
+          <h2>Current PSRs</h2>
+          <div class="fragment">
+            <h3>"Hard" specs</h3>
+            <ul>
+              <li><del>PSR-0 (Autoloading)</del></li>
+              <li>PSR-3 (Logging)</li>
+              <li>PSR-4 (Autoloading)</li>
+              <li>PSR-7 (HTTP Messages)</li>
+            </ul>
+          </div>
+          <div class="fragment">
+            <h3>"Soft" specs</h3>
+            <ul>
+              <li>PSR-1 (Basic coding standards)</li>
+              <li>PSR-2 (Full coding standards)</li>
+            </ul>
+          </div>
+        </section>
         <section>
-          <section class="l--2up">
-            <h2>Current PSRs</h2>
-            <div class="fragment">
-              <h3>"Hard" specs</h3>
+          <section>
+            <h3>Autoloading</h3>
+            <h3>PSR-4</h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Logging</h3>
+            <h3>PSR-3</h3>
+          </section>
+          <section>
+            <h3>Logger</h3>
+            <pre><code class="php" data-trim>
+namespace Psr\Log;
+
+interface LoggerInterface {
+  public function log($level, $message, array $context = array());
+
+  public function emergency($message, array $context = array());
+  public function alert($message, array $context = array());
+  public function critical($message, array $context = array());
+  public function error($message, array $context = array());
+  public function warning($message, array $context = array());
+  public function notice($message, array $context = array());
+  public function info($message, array $context = array());
+  public function debug($message, array $context = array());
+}
+            </code></pre>
+            <aside class="notes">
               <ul>
-                <li><del>PSR-0 (Autoloading)</del></li>
-                <li>PSR-3 (Logging)</li>
-                <li>PSR-4 (Autoloading)</li>
-                <li>PSR-7 (HTTP Messages</li>
+                <li>log() is most important, rest are convenience</li>
+                <li>Target is log consumers, not implementers</li>
+                <li>Code lib against PSR-3, framework can use any logger</li>
+                <li>$message is string or __toString()</li>
               </ul>
-            </div>
-            <div class="fragment">
-              <h3>"Soft" specs</h3>
+            </aside>
+          </section>
+          <section>
+            <h3>Log levels</h3>
+            <pre><code class="php" data-trim>
+namespace Psr\Log;
+
+class LogLevel
+{
+    const EMERGENCY = 'emergency';
+    const ALERT     = 'alert';
+    const CRITICAL  = 'critical';
+    const ERROR     = 'error';
+    const WARNING   = 'warning';
+    const NOTICE    = 'notice';
+    const INFO      = 'info';
+    const DEBUG     = 'debug';
+}
+            </code></pre>
+            <p>Based on <a href="http://tools.ietf.org/html/rfc5424">RFC 5424</a></p>
+          </section>
+          <section>
+            <h3>LogerAware</h3>
+            <pre><code class="php" data-trim>
+namespace Psr\Log;
+
+interface LoggerAwareInterface
+{
+    public function setLogger(LoggerInterface $logger);
+}
+            </code></pre>
+            <aside class="notes">
               <ul>
-                <li>PSR-1 (Basic coding standards)</li>
-                <li>PSR-2 (Full coding standards)</li>
+                <li>Mainly to support auto-wiring</li>
               </ul>
-            </div>
+            </aside>
+          </section>
+          <section>
+            <h3>Context?</h3>
+            <p>Extra metadata, including placeholders</p>
+            <pre class="fragment"><code class="php" data-trim>
+$logger->notice("User {$username} failed to login. Hacker, maybe?");
+            </code></pre>
+            <pre style="margin-top: 1em;" class="fragment"><code class="php" data-trim>
+$username = "' --; DROP TABLE users;";
+            </code></pre>
+            <pre style="margin-top: 1em;" class="fragment"><code class="php" data-trim>
+$username = "&lt;script>alert('Got you!');&lt;/script>";
+            </code></pre>
+            <p style="margin-top: 1em;" class="fragment">Can't know output target in advance</p>
+          </section>
+          <section>
+            <h3>Secure logging</h3>
+            <pre><code class="php" data-trim>
+$logger->notice("User {username} failed to login. Hacker, maybe?", ['username' => $username]);
+            </code></pre>
+            <p style="margin-top: 1em;" class="fragment">Inspired by Drupal watchdog()/t()</p>
+          </section>
+          <section>
+            <h3>Logging exceptions</h3>
+            <pre><code class="php" data-trim>
+try {
+  do_something_dangerous();
+}
+catch (\Exception $e) {
+  $logger->error("Well that escalated quickly.", ['exception' => $e]);
+}
+            </code></pre>
           </section>
         </section>
 
