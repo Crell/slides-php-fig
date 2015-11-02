@@ -441,6 +441,77 @@ catch (\Exception $e) {
           </section>
           <section>
             <p class="bigtext">HTTP Messages should be objects!</p>
+            <p class="bigtext fragment">(Message passing, yo.)</p>
+          </section>
+          <section>
+            <h2>\Psr\Http\Message</h2>
+            <ul>
+              <li><i>MessageInterface</i>
+                <ul>
+                  <li>RequestInterface
+                    <ul>
+                      <li>ServerRequestInterface</li>
+                    </ul>
+                  </li>
+                  <li>ResponseInterface</li>
+                </ul>
+              </li>
+              <li>StreamInterface</li>
+              <li>UriInterface</li>
+              <li>UploadedFileInterface</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Immutable objects</h2>
+            <pre class="font--20"><code class="php" data-trim>
+$response = new Response();
+
+$response = $response->withStatusCode(200);
+$response = $response->withHeader('Content-Type', 'application/json');
+
+$response = $response
+  ->withHeader('Cache-Control', 'public')
+  ->withAddedHeader('Cache-Control', 'max-age=300');
+            </code></pre>
+            <aside class="notes">
+              <ul>
+                <li>Immutable = predictability = fewer bugs</li>
+                <li>Copy-on-write means good performance</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>Streams</h2>
+            <pre class="font--20"><code class="php" data-trim>
+$body = new PsrFileStream('secret_plans.odt');
+$response = $response->withBody($body);
+            </code></pre>
+            <pre style="margin-top: 1em;" class="fragment font--20"><code class="php" data-trim>
+$body = new StringStream($htmlData);
+$response = $response->withBody($body);
+            </code></pre>
+            <pre style="margin-top: 1em;" class="fragment font--20"><code class="php" data-trim>
+$callback = function() use ($data) {
+  foreach ($data as $record) {
+    return implode(', ', $record);
+  }
+};
+
+$body = new CallbackStream($callback);
+$response = $response->withBody($body);
+            </code></pre>
+            <aside class="notes">
+              <ul>
+                <li>Abstracts all 3 types of output</li>
+                <li>Not native streams, but can be backed by</li>
+                <li>Streams not immutable! Can't be.</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>UriInterface</h2>
+            <p class="fragment">URIs are way more complicated than you think</p>
+            <p class="fragment">More portable and predictable than parse_url()</p>
           </section>
         </section>
 
