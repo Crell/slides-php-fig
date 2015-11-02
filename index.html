@@ -296,7 +296,7 @@ include_once $some_root . '/Head/Link_Element.php';
     }
 }
             </code></pre>
-            <p class="fragment">Always use PSR-4, not PSR-0.</p>
+            <p class="fragment">Always use PSR-4, not PSR-0</p>
             <p class="fragment">(<a href="https://github.com/Crell/HtmlModel/">Shameless Plug for HtmlModel</a>)</p>
             <aside class="notes">
               <ul>
@@ -380,7 +380,7 @@ interface LoggerAwareInterface
 $logger->notice("User {$username} failed to login. Hacker, maybe?");
             </code></pre>
             <pre style="margin-top: 1em;" class="fragment"><code class="php" data-trim>
-$username = "' --; DROP TABLE users;";
+$username = "'; DROP TABLE users; --";
             </code></pre>
             <pre style="margin-top: 1em;" class="fragment"><code class="php" data-trim>
 $username = "&lt;script>alert('Got you!');&lt;/script>";
