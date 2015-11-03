@@ -543,7 +543,7 @@ $response = $response->withBody($body);
               <li class="fragment">...</li>
             </ul>
             <p class="fragment">That there is a standard matters more than what it is</p>
-            <aside class="fragment">
+            <aside class="notes">
               <ul>
                 <li>Most projects now use PSR-2-ish</li>
                 <li>Most IDEs/tools now have PSR-2 defaults</li>
@@ -590,7 +590,70 @@ $response = $response->withBody($body);
             <h2>Caching</h2>
             <h3><a href="https://github.com/phpDocumentor/fig-standards/blob/master/proposed/cache.md">PSR-6</a></h3>
           </section>
+          <section>
+            <h2>PSR-6</h2>
+            <p>Similar goal as Logging</p>
+            <aside class="notes">
+              <ul>
+                <li>Make it easy for libs to cache to unknown store</li>
+                <li>Inject cache, read/write, kxthxbye</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>\Psr\Cache</h2>
+            <ul>
+              <li>CacheItemInterface</li>
+              <li>CacheItemPoolInterface</li>
+            </ul>
+            <p class="fragment">Repository model</p>
+          </section>
+          <section>
+            <pre class="font--20"><code class="php" data-trim>
+class MyService {
+  protected $pool;
 
+  public function __construct(CacheItemPoolInterface $pool) {
+    $this->pool = $pool;
+  }
+
+  public function getWidgetList() {
+    $item = $this->pool->getItem('widget_list');
+    if (!$item->isHit()) {
+      $value = $this->computeExpensiveWidgetList();
+      $item
+        ->set($value)
+        ->expiresAt(new DateTime('now +1 hour'));
+      $this->pool->save($item);
+    }
+    return $item->get();
+  }
+}
+            </code></pre>
+          </section>
+          <section>
+            <pre class="font--20"><code class="php" data-trim>
+class MyService {
+  protected $pool;
+
+  // ...
+
+  public function warmCache() {
+    foreach ($this->widgets as $widget) {
+      $item = $this->pool->getItem('widget-' . $widget->id());
+      $item->set($this->computeExpensiveValue($widget));
+      $this->pool->saveDeferred($item);
+    }
+    $this->pool->commit();
+  }
+
+  public function getWidgetInfo(array $ids) {
+    $list = array_map(function($id) {return 'widget-' . $id; }, $ids);
+    return $this->pool->getMultiple($list);
+  }
+}
+            </code></pre>
+          </section>
         </section>
 
 
