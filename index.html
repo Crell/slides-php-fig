@@ -551,6 +551,10 @@ $response = $response->withBody($body);
               </ul>
             </aside>
           </section>
+          <section>
+            <p class="bigtext">PHP 7 updates coming in PSR-12...</p>
+            <p class="fragment bigtext">(Eventually)</p>
+          </section>
         </section>
         <section class="l-2up">
           <h2>Upcoming PSRs</h2>
@@ -707,48 +711,127 @@ class CacheWrapper implements ImportantInterface {
         <section>
           <section>
             <h2>Security</h2>
-            <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">PSR-1</a> <a href="https://github.com/php-fig/fig-standards/pull/473">PSR-2</a></h3>
+            <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">PSR-9</a> <a href="https://github.com/php-fig/fig-standards/pull/473">PSR-10</a></h3>
           </section>
           <section>
-
+            <h2>Security</h2>
+            <dl>
+              <dt>PSR-9</dt>
+              <dd>Process</dd>
+              <dd>Reporting mechanisms</dd>
+              <dt>PSR-10</dt>
+              <dd>Security Advisory format</dd>
+            </dl>
+          </section>
+          <section>
+            <p>Open alternative to <a href="https://security.sensiolabs.org/">Sensio Labs Security Advisory Checker</a></p>
+            <div style="margin-top: 1em;" class="fragment">
+              <p><q>Am I vulnerable?</q></p>
+              <p><span style="text-decoration: underline">Yep</span>&nbsp;&nbsp;<span style="text-decoration: underline">Nope</span></p>
+            </div>
+            <aside class="notes">
+              <ul>
+                <li>Project publishes feed of SAs</li>
+                <li>Anyone can build tools to aggregate, validate, check</li>
+              </ul>
+            </aside>
           </section>
         </section>
+        <section>
+          <section>
+            <h2>Containers</h2>
+            <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/container.md">PSR-11</a></h3>
+            <aside class="notes">
+              <ul>
+                <li>Controversial, but passed entrance vote</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>ContainerInterface</h2>
+            <pre class="font--18"><code class="php" data-trim>
+namespace Psr\Container;
 
+interface ContainerInterface
+{
+    public function get(string $id);
 
+    public function has(string $id);
+}
+            </code></pre>
+            <p>(So far)</p>
+          </section>
+          <section>
+            <p>For factories and other edge cases</p>
+            <p style="margin-top: 1em;" class="fragment">And delegation</p>
+            <aside class="notes">
+              <ul>
+                <li>Nesting containers together</li>
+                <li>One lib can ship its own container, main app can stitch them together</li>
+                <li>This is the controversial part.</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <p class="bigtext">The goal of FIG is to encourage collaboration</p>
+            <p class="fragment bigtext">Collaboration builds community</p>
+          </section>
+          <section class="l-2up">
+            <h2>Success</h2>
+            <div class="fragment">
+              <h3>PSR-3</h3>
+              <ul>
+                <li>18 million installs</li>
+                <li>1277 dependants</li>
+              </ul>
+            </div>
+            <div class="fragment">
+              <h3>PSR-7</h3>
+                <ul>
+                  <li>1.4 million installs</li>
+                  <li>278 dependants</li>
+                  <li>middlewares</li>
+                </ul>
+            </div>
+            <p class="fragment" style="margin-top: 4em;">(Source, Packagist.org, November 2015)</p>
+          </section>
+          <section>
+            <p class="bigtext">Our biggest success...</p>
+            <div class="fragment">
+              <h2>Huggable</h2>
+              <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/psr-8-hug/psr-8-hug.md">PSR-8</a></h3>
+            </div>
+          </section>
+          <section>
+            <pre class="font--18"><code class="php" data-trim>
+namespace Psr\Hug;
 
-        <div style="display:none">
+interface Huggable
+{
+    public function hug(Huggable $h);
+}
 
-          - Intro / What is FIG
-          -- UN of PHP
-          -- Collaboration venue
-          - History (steal from Rennaissance)
-          -- phpTek 2009
-          -- Smoke filled room story
-          -- PSR-0
-          -- 2010
-          -- 2013 Structure reboot
-          - Process
-          -- Draft, Review, numbering, etc.
-          - Current specs
-          -- PSR-1/2
-          -- PSR-4
-          -- PSR-3
-          -- PSR-7
-          -- PSR-6???
-          -- PSR-8 :)
-          - Up and coming
-          -- PSR-5
-          -- PSR-9/10
-          -- PSR-11
-          -- PSR-12
-          - Getting involved
-          -- Talk to your rep!
-          -- Is your rep absentee? Suggest taking their place. :-)
-          -- Want to be an Editor? Build a team first
-
-
-        </div>
-
+interface GroupHuggable extends Huggable
+{
+  public function groupHug($huggables);
+}
+            </code></pre>
+          </section>
+          <section>
+            <h2>Bulgaria PHP Draft implementation</h2>
+            <img src="assets/bulgaria-php-hug.jpg" data-credit="https://twitter.com/bgphp/status/648545467295531008" />
+            <aside class="notes">
+              <ul>
+                <li>Interoperability is about working together</li>
+                <li>Make PHP a better ecosystem for everyone</li>
+                <li>Projects are talking to each other more</li>
+                <li>Even if not a PSR, it's a channel for collaboration</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
         <section id="final">
           <h2>Larry Garfield</h2>
           <p>Senior Architect, <a href="http://www.palantir.net/">Palantir.net</a></p>
