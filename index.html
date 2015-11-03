@@ -597,6 +597,7 @@ $response = $response->withBody($body);
               <ul>
                 <li>Make it easy for libs to cache to unknown store</li>
                 <li>Inject cache, read/write, kxthxbye</li>
+                <li>Look-aside cache (other models exist)</li>
               </ul>
             </aside>
           </section>
@@ -609,6 +610,7 @@ $response = $response->withBody($body);
             <p class="fragment">Repository model</p>
           </section>
           <section>
+            <h2>Simple caching</h2>
             <pre class="font--20"><code class="php" data-trim>
 class MyService {
   protected $pool;
@@ -619,11 +621,14 @@ class MyService {
 
   public function getWidgetList() {
     $item = $this->pool->getItem('widget_list');
+
     if (!$item->isHit()) {
       $value = $this->computeExpensiveWidgetList();
+
       $item
         ->set($value)
         ->expiresAt(new DateTime('now +1 hour'));
+
       $this->pool->save($item);
     }
     return $item->get();
@@ -632,6 +637,7 @@ class MyService {
             </code></pre>
           </section>
           <section>
+            <h2>Bulk operations</h2>
             <pre class="font--20"><code class="php" data-trim>
 class MyService {
   protected $pool;
@@ -640,8 +646,11 @@ class MyService {
 
   public function warmCache() {
     foreach ($this->widgets as $widget) {
+
       $item = $this->pool->getItem('widget-' . $widget->id());
+
       $item->set($this->computeExpensiveValue($widget));
+
       $this->pool->saveDeferred($item);
     }
     $this->pool->commit();
@@ -649,12 +658,62 @@ class MyService {
 
   public function getWidgetInfo(array $ids) {
     $list = array_map(function($id) {return 'widget-' . $id; }, $ids);
+
     return $this->pool->getMultiple($list);
   }
 }
             </code></pre>
           </section>
+          <section>
+            <h2>Read-through caching</h2>
+            <pre class="font--18"><code class="php" data-trim>
+interface ImportantInterface {
+  public function doExpensiveStuff($param);
+}
+
+class Important implements ImportantInterface {
+  public function doExpensiveStuff($param) {
+    // ...
+  }
+}
+
+class CacheWrapper implements ImportantInterface {
+  public function __construct(CacheItemPoolInterface $pool, ImportantInterface $wrapped) {
+    $this->pool = $pool;
+    $this->wrapped = $wrapped;
+  }
+
+  public function doExpensiveStuff($param) {
+    $item = $this->pool->getItem(__CLASS__ . __METHOD__);
+
+    if (!$item->isHit()) {
+      $item->set($this->wrapped->doExpensiveStuff($param));
+      $this->pool->save($item);
+    }
+
+    return $item->get();
+  }
+}
+            </code></pre>
+          </section>
+          <section>
+            <h2>Extensible</h2>
+            <ul>
+              <li class="fragment">Add interface to both pool and item</li>
+              <li class="fragment">Tagging, namespaces, etc.</li>
+            </ul>
+          </section>
         </section>
+        <section>
+          <section>
+            <h2>Security</h2>
+            <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">PSR-1</a> <a href="https://github.com/php-fig/fig-standards/pull/473">PSR-2</a></h3>
+          </section>
+          <section>
+
+          </section>
+        </section>
+
 
 
         <div style="display:none">
