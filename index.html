@@ -88,7 +88,6 @@
               <li>Senior Architect, <a href="http://www.palantir.net/">Palantir.net</a></li>
               <li style="margin-top: 1em;">Drupal 8 Web Services Lead</li>
               <li style="margin-top: 1em;">Drupal Representative, <a href="http://www.php-fig.org/">PHP-FIG</a></li>
-              <li style="margin-top: 1em;"><code>implements Huggable</code></li>
             </ul>
           </div>
         </section>
@@ -143,10 +142,10 @@
             <h2>PSR-0</h2>
             <p class="fragment" style="margin-top: 1em;"><code>&lt;vendor&gt;\Package\Whatever</code></p>
 
-            <pre class="fragment"><code class="php">new \Some\Class\Name_Here();</code></pre>
-            <pre class="fragment"><code class="php">include_once $some_root . '/Some/Class/Name/Here.php';</code></pre>
+            <pre class="font--20 fragment"><code class="php">new \Some\Class\Name_Here();</code></pre>
+            <pre class="font--20 fragment"><code class="php">include_once $some_root . '/Some/Class/Name/Here.php';</code></pre>
 
-            <pre class="fragment"><code class="php" data-trim>
+            <pre class="font--20 fragment"><code class="php" data-trim>
 new Guzzle\Http\Client();
 // require('/some/root/path/Guzzle/Http/Client.php');
             </code></pre>
@@ -186,6 +185,28 @@ new Guzzle\Http\Client();
         </section>
         <section>
           <section>
+            <h2>So who are you, exactly?</h2>
+          </section>
+          <section>
+            <p class="bigtext"><q>Projects, not people</q></p>
+            <p class="fragment bigtext">Voted in by current voting reps</p>
+            <p class="bigtext fragment"><a href="http://www.php-fig.org/members/">42 projects</a> and one community busybody</p>
+            <aside class="notes">
+              <ul>
+                <li>Projects apply for membership, with voting representative</li>
+                <li>Most voting reps are project leads, not all (Drupal, Symfony, PHP League, Sculpin)</li>
+                <li>Projects can change voting rep</li>
+                <li>Project reps answerable to project, details vary</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <p class="bigtext">Voting representatives vote</p>
+            <p class="bigtext fragment">Everything else is open to all</p>
+          </section>
+        </section>
+        <section>
+          <section>
             <h2>So what does FIG, um, do?</h2>
           </section>
           <section>
@@ -208,16 +229,16 @@ new Guzzle\Http\Client();
               <h3>Pre-Draft</h3>
               <p>Random idea</p>
             </div>
-            <div class="fragment">
+            <div style="margin-top: 1em;" class="fragment">
               <h3>Draft</h3>
               <p>PSR number assigned</p>
               <p>Iterate and collaborate</p>
             </div>
-            <div class="fragment">
+            <div style="margin-top: 1em;" class="fragment">
               <h3>Review</h3>
               <p>Release Candidate</p>
             </div>
-            <div class="fragment">
+            <div style="margin-top: 1em;" class="fragment">
               <h3>Approved!</h3>
               <p>Profit!!1!</p>
             </div>
@@ -268,7 +289,7 @@ new Guzzle\Http\Client();
           <section>
             <div>
               <h3>PSR-0</h3>
-              <pre><code class="php" data-trim>
+              <pre class="font--20"><code class="php" data-trim>
 new \Crell\HtmlModel\Head\Link_Element();
 // Results in:
 include_once $some_root . '/Crell/HtmlModel/Head/Link/Element.php';
@@ -276,7 +297,7 @@ include_once $some_root . '/Crell/HtmlModel/Head/Link/Element.php';
             </div>
             <div style="margin-top: 1em;" class="fragment">
               <h3>PSR-4</h3>
-              <pre><code class="php" data-trim>
+              <pre class="font--20"><code class="php" data-trim>
 new \Crell\HtmlModel\Head\Link_Element();
 // Results in:
 include_once $some_root . '/Head/Link_Element.php';
@@ -286,7 +307,7 @@ include_once $some_root . '/Head/Link_Element.php';
           </section>
           <section>
             <h3>Composer</h3>
-            <pre><code class="json" data-trim>
+            <pre class="font--22"><code class="json" data-trim>
 {
     "name": "crell/htmlmodel",
     "autoload": {
@@ -389,8 +410,10 @@ $username = "&lt;script>alert('Bobby Tables is so cute.');&lt;/script>";
           </section>
           <section>
             <h3>Secure logging</h3>
-            <pre class="font--16"><code class="php" data-trim>
-$logger->notice("User {username} failed to login. Hacker, maybe?", ['username' => $username]);
+            <pre class="font--20"><code class="php" data-trim>
+$logger->notice("User {username} failed to login. Hacker, maybe?", [
+  'username' => $username,
+]);
             </code></pre>
             <p style="margin-top: 1em;" class="fragment">Inspired by Drupal watchdog()/t()</p>
           </section>
@@ -520,7 +543,7 @@ $response = $response->withBody($body);
             <h3><a href="http://www.php-fig.org/psr/psr-1/">PSR-1</a> <a href="http://www.php-fig.org/psr/psr-2/">PSR-2</a></h3>
           </section>
           <section>
-            <p class="bigtext">The most needlessly contriversial specs ever</p>
+            <p class="bigtext">The most needlessly controversial specs ever</p>
           </section>
           <section>
             <h2>PSR-1</h2>
@@ -776,7 +799,8 @@ interface ContainerInterface
         <section>
           <section>
             <p class="bigtext">The goal of FIG is to encourage collaboration</p>
-            <p class="fragment bigtext">Collaboration builds community</p>
+            <p class="fragment bigtext">Collaboration builds interoperability</p>
+            <p class="fragment bigtext">... and community</p>
           </section>
           <section class="l-2up">
             <h2>Success</h2>
