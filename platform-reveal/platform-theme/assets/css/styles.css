@@ -1539,89 +1539,53 @@ body {
 
 /**
  * @file
- * Style rules for custom Palantir.net reveal theme.
+ * Style rules for custom Platform.sh reveal theme.
  *
- * @copyright Copyright (c) 2015 Palantir.net
+ * Originally based on theme for Palantir.net, reskinned by Larry Garfield.
  */
 @font-face {
-  font-family: 'proxima-nova';
-  src: url("../fonts/proxima-nova/Proxima Nova-Regular.otf");
+  font-family: 'open-sans';
+  src: url("../fonts/open-sans/OpenSans-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'proxima-nova';
-  src: url("../fonts/proxima-nova/Proxima Nova-RegItalic.otf");
+  font-family: 'open-sans';
+  src: url("../fonts/open-sans/OpenSans-Italic.ttf");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: 'proxima-nova';
-  src: url("../fonts/proxima-nova/Proxima Nova-Bold.otf");
+  font-family: 'open-sans';
+  src: url("../fonts/open-sans/OpenSans-Bold.ttf");
   font-weight: 600;
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: 'proxima-nova';
-  src: url("../fonts/proxima-nova/Proxima Nova-BoldIt.otf");
+  font-family: 'open-sans';
+  src: url("../fonts/open-sans/OpenSans-BoldItalic.ttf");
   font-weight: 600;
   font-weight: bold;
   font-style: italic;
 }
 @font-face {
-  font-family: 'proxima-nova';
-  src: url("../fonts/proxima-nova/Proxima Nova-Light.otf");
+  font-family: 'open-sans';
+  src: url("../fonts/open-sans/OpenSans-Light.ttf");
   font-weight: 200;
   font-style: normal;
 }
 @font-face {
-  font-family: 'proxima-nova';
-  src: url("../fonts/proxima-nova/Proxima Nova-LightItalic.otf");
+  font-family: 'open-sans';
+  src: url("../fonts/open-sans/OpenSans-LightItalic.ttf");
   font-weight: 200;
   font-style: italic;
 }
 @font-face {
-  font-family: 'proxima-nova';
-  src: url("../fonts/proxima-nova/Proxima Nova-Black.otf");
+  font-family: 'open-sans';
+  src: url("../fonts/open-sans/OpenSans-ExtraBold.ttf");
   font-weight: 900;
   font-style: normal;
-}
-@font-face {
-  font-family: 'proxima-nova-cond';
-  src: url("../fonts/proxima-nova-cond/Proxima Nova Cond-Regular.otf");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'proxima-nova-cond';
-  src: url("../fonts/proxima-nova-cond/Proxima Nova Cond-RegularIt.otf");
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'proxima-nova-cond';
-  src: url("../fonts/proxima-nova-cond/Proxima Nova Cond-Light.otf");
-  font-weight: 200;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'proxima-nova-cond';
-  src: url("../fonts/proxima-nova-cond/Proxima Nova Cond-LightIt.otf");
-  font-weight: 200;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'proxima-nova-cond';
-  src: url("../fonts/proxima-nova-cond/Proxima Nova Cond-Semibold.otf");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'proxima-nova-cond';
-  src: url("../fonts/proxima-nova-cond/Proxima Nova Cond-SemiboldIt.otf");
-  font-weight: 600;
-  font-style: italic;
 }
 /*********************************************
  * GLOBAL STYLES
@@ -1641,7 +1605,7 @@ body.white {
 /* line 17, ../sass/_theme.scss */
 body.dark {
   background: #dbe8ec;
-  background-color: #344041;
+  background-color: #424041;
 }
 
 /* line 22, ../sass/_theme.scss */
@@ -1687,7 +1651,7 @@ body.dark {
 .light .reveal h4,
 .light .reveal h5,
 .light .reveal h6 {
-  color: #344041;
+  color: #424041;
 }
 
 /* line 62, ../sass/_theme.scss */
@@ -1706,7 +1670,7 @@ body.dark {
 .reveal h2,
 .reveal h3 {
   margin: 0.15em 0 0.35em;
-  font-family: "proxima-nova", sans-serif;
+  font-family: "open-sans", sans-serif;
   font-weight: 600;
   line-height: 1;
   letter-spacing: normal;
@@ -1843,9 +1807,9 @@ body.dark {
   font-style: italic;
   background: none;
   box-shadow: none;
-  color: #11a9a1;
-  border-top: 1px dotted #11a9a1;
-  border-bottom: 1px dotted #11a9a1;
+  color: #00b4ff;
+  border-top: 1px dotted #00b4ff;
+  border-bottom: 1px dotted #00b4ff;
 }
 
 /* line 193, ../sass/_theme.scss */
@@ -1932,7 +1896,7 @@ body.dark {
  *********************************************/
 /* line 264, ../sass/_theme.scss */
 .reveal a {
-  color: #0c7b75;
+  color: #00b4ff;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -1941,7 +1905,7 @@ body.dark {
 
 /* line 272, ../sass/_theme.scss */
 .reveal a:hover {
-  color: #11a9a1;
+  color: #0090cc;
   text-shadow: none;
   border: none;
 }
@@ -1949,7 +1913,7 @@ body.dark {
 /* line 279, ../sass/_theme.scss */
 .reveal .roll span:after {
   color: #fff;
-  background: #053533;
+  background: #007eb3;
 }
 
 /*********************************************
@@ -1973,7 +1937,7 @@ body.dark {
 /* line 303, ../sass/_theme.scss */
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #0c7b75;
+  border-color: #00b4ff;
   box-shadow: none;
 }
 
@@ -1983,45 +1947,45 @@ body.dark {
 /* line 315, ../sass/_theme.scss */
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #0c7b75;
+  border-right-color: #00b4ff;
 }
 
 /* line 320, ../sass/_theme.scss */
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #0c7b75;
+  border-left-color: #00b4ff;
 }
 
 /* line 325, ../sass/_theme.scss */
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #0c7b75;
+  border-bottom-color: #00b4ff;
 }
 
 /* line 330, ../sass/_theme.scss */
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #0c7b75;
+  border-top-color: #00b4ff;
 }
 
 /* line 335, ../sass/_theme.scss */
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #11a9a1;
+  border-right-color: #0090cc;
 }
 
 /* line 339, ../sass/_theme.scss */
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #11a9a1;
+  border-left-color: #0090cc;
 }
 
 /* line 343, ../sass/_theme.scss */
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #11a9a1;
+  border-bottom-color: #0090cc;
 }
 
 /* line 347, ../sass/_theme.scss */
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #11a9a1;
+  border-top-color: #0090cc;
 }
 
 /*********************************************
@@ -2034,7 +1998,7 @@ body.dark {
 
 /* line 359, ../sass/_theme.scss */
 .reveal .progress span {
-  background: #0c7b75;
+  background: #00b4ff;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -2045,7 +2009,7 @@ body.dark {
  *********************************************/
 /* line 370, ../sass/_theme.scss */
 .reveal .slide-number {
-  color: #0c7b75;
+  color: #00b4ff;
 }
 
 /**
@@ -2092,44 +2056,20 @@ body.dark {
   font-size: 20px;
 }
 /* line 41, ../sass/_code.scss */
-.reveal pre.font--22 {
-  font-size: 22px;
-}
-/* line 44, ../sass/_code.scss */
 .reveal pre.font--24 {
   font-size: 24px;
 }
-/* line 47, ../sass/_code.scss */
-.reveal pre.font--26 {
-  font-size: 26px;
-}
-/* line 50, ../sass/_code.scss */
-.reveal pre.font--28 {
-  font-size: 28px;
-}
-/* line 53, ../sass/_code.scss */
+/* line 44, ../sass/_code.scss */
 .reveal pre.font--30 {
   font-size: 30px;
 }
-/* line 56, ../sass/_code.scss */
-.reveal pre.font--32 {
-  font-size: 32px;
-}
-/* line 59, ../sass/_code.scss */
-.reveal pre.font--34 {
-  font-size: 34px;
-}
-/* line 62, ../sass/_code.scss */
-.reveal pre.font--36 {
-  font-size: 34px;
-}
 
-/* line 68, ../sass/_code.scss */
+/* line 50, ../sass/_code.scss */
 .reveal code {
   font-family: monospace;
 }
 
-/* line 72, ../sass/_code.scss */
+/* line 54, ../sass/_code.scss */
 .reveal pre code {
   display: block;
   padding: 0.5em;
@@ -2138,23 +2078,23 @@ body.dark {
   word-wrap: normal;
 }
 
-/* line 80, ../sass/_code.scss */
+/* line 62, ../sass/_code.scss */
 .no-container > code {
   background-color: transparent;
 }
 
-/* line 95, ../sass/_code.scss */
+/* line 77, ../sass/_code.scss */
 .dark .reveal .hljs {
   display: block;
   padding: 0.5em;
-  background: #3f4e4f;
+  background: #4f4d4e;
   color: #dbe8ec;
 }
-/* line 101, ../sass/_code.scss */
+/* line 83, ../sass/_code.scss */
 .dark .reveal .no-container > .hljs {
   background-color: transparent;
 }
-/* line 105, ../sass/_code.scss */
+/* line 87, ../sass/_code.scss */
 .dark .reveal .hljs-keyword,
 .dark .reveal .hljs-tag,
 .dark .reveal .css .hljs-class,
@@ -2166,25 +2106,25 @@ body.dark {
 .dark .reveal .clojure .hljs-attribute {
   color: #E3CEAB;
 }
-/* line 117, ../sass/_code.scss */
+/* line 99, ../sass/_code.scss */
 .dark .reveal .django .hljs-template_tag,
 .dark .reveal .django .hljs-variable,
 .dark .reveal .django .hljs-filter .hljs-argument {
   color: #DCDCDC;
 }
-/* line 123, ../sass/_code.scss */
+/* line 105, ../sass/_code.scss */
 .dark .reveal .hljs-number,
 .dark .reveal .hljs-date {
   color: #8CD0D3;
 }
-/* line 128, ../sass/_code.scss */
+/* line 110, ../sass/_code.scss */
 .dark .reveal .dos .hljs-envvar,
 .dark .reveal .dos .hljs-stream,
 .dark .reveal .hljs-variable,
 .dark .reveal .apache .hljs-sqbracket {
   color: #EFDCBC;
 }
-/* line 135, ../sass/_code.scss */
+/* line 117, ../sass/_code.scss */
 .dark .reveal .dos .hljs-flow,
 .dark .reveal .diff .hljs-change,
 .dark .reveal .python .exception,
@@ -2193,12 +2133,12 @@ body.dark {
 .dark .reveal .tex .hljs-special {
   color: #EFEFAF;
 }
-/* line 144, ../sass/_code.scss */
+/* line 126, ../sass/_code.scss */
 .dark .reveal .diff .hljs-chunk,
 .dark .reveal .hljs-subst {
   color: #8F8F8F;
 }
-/* line 149, ../sass/_code.scss */
+/* line 131, ../sass/_code.scss */
 .dark .reveal .dos .hljs-keyword,
 .dark .reveal .python .hljs-decorator,
 .dark .reveal .hljs-title,
@@ -2211,14 +2151,14 @@ body.dark {
 .dark .reveal .hljs-prompt {
   color: #efef8f;
 }
-/* line 162, ../sass/_code.scss */
+/* line 144, ../sass/_code.scss */
 .dark .reveal .dos .hljs-winutils,
 .dark .reveal .ruby .hljs-symbol,
 .dark .reveal .ruby .hljs-symbol .hljs-string,
 .dark .reveal .ruby .hljs-string {
   color: #DCA3A3;
 }
-/* line 169, ../sass/_code.scss */
+/* line 151, ../sass/_code.scss */
 .dark .reveal .diff .hljs-deletion,
 .dark .reveal .hljs-string,
 .dark .reveal .hljs-tag .hljs-value,
@@ -2238,7 +2178,7 @@ body.dark {
 .dark .reveal .coffeescript .hljs-attribute {
   color: #CC9393;
 }
-/* line 189, ../sass/_code.scss */
+/* line 171, ../sass/_code.scss */
 .dark .reveal .hljs-shebang,
 .dark .reveal .diff .hljs-addition,
 .dark .reveal .hljs-comment,
@@ -2248,7 +2188,7 @@ body.dark {
 .dark .reveal .hljs-doctype {
   color: #7F9F7F;
 }
-/* line 199, ../sass/_code.scss */
+/* line 181, ../sass/_code.scss */
 .dark .reveal .coffeescript .javascript,
 .dark .reveal .javascript .xml,
 .dark .reveal .tex .hljs-formula,
@@ -2259,20 +2199,20 @@ body.dark {
   opacity: 0.5;
 }
 
-/* line 213, ../sass/_code.scss */
+/* line 195, ../sass/_code.scss */
 .white .reveal .hljs,
 .light .reveal .hljs {
   display: block;
   padding: 0.5em;
   background: #ecf3f5;
-  color: #344041;
+  color: #424041;
 }
-/* line 219, ../sass/_code.scss */
+/* line 201, ../sass/_code.scss */
 .white .reveal .no-container > .hljs,
 .light .reveal .no-container > .hljs {
   background-color: transparent;
 }
-/* line 223, ../sass/_code.scss */
+/* line 205, ../sass/_code.scss */
 .white .reveal .hljs-keyword,
 .white .reveal .hljs-tag,
 .white .reveal .css .hljs-class,
@@ -2293,7 +2233,7 @@ body.dark {
 .light .reveal .clojure .hljs-attribute {
   color: #B34A00;
 }
-/* line 236, ../sass/_code.scss */
+/* line 218, ../sass/_code.scss */
 .white .reveal .django .hljs-template_tag,
 .white .reveal .django .hljs-variable,
 .white .reveal .django .hljs-filter .hljs-argument,
@@ -2302,14 +2242,14 @@ body.dark {
 .light .reveal .django .hljs-filter .hljs-argument {
   color: #9F3864;
 }
-/* line 243, ../sass/_code.scss */
+/* line 225, ../sass/_code.scss */
 .white .reveal .hljs-number,
 .white .reveal .hljs-date,
 .light .reveal .hljs-number,
 .light .reveal .hljs-date {
   color: #167A7E;
 }
-/* line 249, ../sass/_code.scss */
+/* line 231, ../sass/_code.scss */
 .white .reveal .dos .hljs-envvar,
 .white .reveal .dos .hljs-stream,
 .white .reveal .hljs-variable,
@@ -2320,7 +2260,7 @@ body.dark {
 .light .reveal .apache .hljs-sqbracket {
   color: #114D97;
 }
-/* line 257, ../sass/_code.scss */
+/* line 239, ../sass/_code.scss */
 .white .reveal .dos .hljs-flow,
 .white .reveal .diff .hljs-change,
 .white .reveal .python .exception,
@@ -2335,14 +2275,14 @@ body.dark {
 .light .reveal .tex .hljs-special {
   color: #307506;
 }
-/* line 267, ../sass/_code.scss */
+/* line 249, ../sass/_code.scss */
 .white .reveal .diff .hljs-chunk,
 .white .reveal .hljs-subst,
 .light .reveal .diff .hljs-chunk,
 .light .reveal .hljs-subst {
   color: #828282;
 }
-/* line 273, ../sass/_code.scss */
+/* line 255, ../sass/_code.scss */
 .white .reveal .dos .hljs-keyword,
 .white .reveal .python .hljs-decorator,
 .white .reveal .hljs-title,
@@ -2365,7 +2305,7 @@ body.dark {
 .light .reveal .hljs-prompt {
   color: #BA0864;
 }
-/* line 287, ../sass/_code.scss */
+/* line 269, ../sass/_code.scss */
 .white .reveal .dos .hljs-winutils,
 .white .reveal .ruby .hljs-symbol,
 .white .reveal .ruby .hljs-symbol .hljs-string,
@@ -2376,7 +2316,7 @@ body.dark {
 .light .reveal .ruby .hljs-string {
   color: #B22424;
 }
-/* line 295, ../sass/_code.scss */
+/* line 277, ../sass/_code.scss */
 .white .reveal .diff .hljs-deletion,
 .white .reveal .hljs-string,
 .white .reveal .hljs-tag .hljs-value,
@@ -2413,7 +2353,7 @@ body.dark {
 .light .reveal .coffeescript .hljs-attribute {
   color: #DB0000;
 }
-/* line 316, ../sass/_code.scss */
+/* line 298, ../sass/_code.scss */
 .white .reveal .hljs-shebang,
 .white .reveal .diff .hljs-addition,
 .white .reveal .hljs-comment,
@@ -2430,7 +2370,7 @@ body.dark {
 .light .reveal .hljs-doctype {
   color: #660DA5;
 }
-/* line 327, ../sass/_code.scss */
+/* line 309, ../sass/_code.scss */
 .white .reveal .coffeescript .javascript,
 .white .reveal .javascript .xml,
 .white .reveal .tex .hljs-formula,
@@ -2454,26 +2394,23 @@ body.dark {
  *
  * @copyright Copyright (c) 2015 Palantir.net
  */
-/* line 7, ../sass/_general.scss */
-.footer {
+/* line 8, ../sass/_general.scss */
+.logo--2,
+.logo {
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 9999;
 }
-
-/* line 14, ../sass/_general.scss */
-.logo-wrapper {
-  display: inline-block;
-}
-
-/* line 20, ../sass/_general.scss */
+/* line 15, ../sass/_general.scss */
+.logo--2 p,
 .logo p {
   position: absolute;
   left: -999px;
   color: transparent;
 }
-/* line 26, ../sass/_general.scss */
+/* line 21, ../sass/_general.scss */
+.logo--2:after,
 .logo:after {
   content: " ";
   display: block;
@@ -2482,32 +2419,48 @@ body.dark {
   margin: 0 0 1em 1em;
 }
 
-/* line 35, ../sass/_general.scss */
+/* line 30, ../sass/_general.scss */
+.logo--2 {
+  left: 245px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 55px;
+  margin: 0 0 1em 1em !important;
+}
+/* line 39, ../sass/_general.scss */
+.logo--2:after {
+  display: none;
+}
+
+/* line 44, ../sass/_general.scss */
 .dark .reveal {
   color: #dbe8ec;
 }
-/* line 38, ../sass/_general.scss */
+/* line 47, ../sass/_general.scss */
 .dark .reveal .logo:after {
-  background: url(../imgs/palantirnet-logo--reversed.svg);
+  background: url(../imgs/platform-logo-1c-white.svg);
+  background-repeat: no-repeat;
 }
 
-/* line 43, ../sass/_general.scss */
+/* line 53, ../sass/_general.scss */
 .white .reveal,
 .light .reveal {
-  color: #344041;
+  color: #424041;
 }
-/* line 47, ../sass/_general.scss */
+/* line 57, ../sass/_general.scss */
 .white .reveal .logo:after,
 .light .reveal .logo:after {
-  background: url(../imgs/palantirnet-logo.svg);
+  background: url(../imgs/platform-logo-2c.svg);
+  background-repeat: no-repeat;
 }
 
-/* line 52, ../sass/_general.scss */
+/* line 63, ../sass/_general.scss */
 .l-2up > div {
   margin-bottom: 15px;
 }
 @media (min-width: 600px) {
-  /* line 52, ../sass/_general.scss */
+  /* line 63, ../sass/_general.scss */
   .l-2up > div {
     width: 48%;
     margin-bottom: 0;
@@ -2515,24 +2468,24 @@ body.dark {
     float: left;
     font-size: 0.85em;
   }
-  /* line 61, ../sass/_general.scss */
+  /* line 72, ../sass/_general.scss */
   .l-2up > div:nth-of-type(1n) {
     padding-right: 2%;
     padding-left: 0;
   }
-  /* line 66, ../sass/_general.scss */
+  /* line 77, ../sass/_general.scss */
   .l-2up > div:nth-of-type(2n) {
     padding-right: 0;
     padding-left: 2%;
   }
 }
 
-/* line 73, ../sass/_general.scss */
+/* line 84, ../sass/_general.scss */
 .l-3up > div {
   margin-bottom: 15px;
 }
 @media (min-width: 750px) {
-  /* line 73, ../sass/_general.scss */
+  /* line 84, ../sass/_general.scss */
   .l-3up > div {
     width: 31%;
     margin-bottom: 0;
@@ -2540,29 +2493,29 @@ body.dark {
     float: left;
     font-size: 0.7em;
   }
-  /* line 83, ../sass/_general.scss */
+  /* line 94, ../sass/_general.scss */
   .l-3up > div:nth-of-type(1n) {
     padding-right: 2%;
     padding-left: 0;
   }
-  /* line 88, ../sass/_general.scss */
+  /* line 99, ../sass/_general.scss */
   .l-3up > div:nth-of-type(2n) {
     padding-right: 1%;
     padding-left: 1%;
   }
-  /* line 93, ../sass/_general.scss */
+  /* line 104, ../sass/_general.scss */
   .l-3up > div:nth-of-type(3n) {
     padding-right: 0;
     padding-left: 2%;
   }
 }
 
-/* line 100, ../sass/_general.scss */
+/* line 111, ../sass/_general.scss */
 .l-4up > div {
   margin-bottom: 15px;
 }
 @media (min-width: 900px) {
-  /* line 100, ../sass/_general.scss */
+  /* line 111, ../sass/_general.scss */
   .l-4up > div {
     width: 23%;
     margin-bottom: 0;
@@ -2570,29 +2523,29 @@ body.dark {
     float: left;
     font-size: 0.5em;
   }
-  /* line 110, ../sass/_general.scss */
+  /* line 121, ../sass/_general.scss */
   .l-4up > div:nth-of-type(1n) {
     padding-right: 2%;
     padding-left: 0;
   }
-  /* line 115, ../sass/_general.scss */
+  /* line 126, ../sass/_general.scss */
   .l-4up > div:nth-of-type(2n) {
     padding-right: 1%;
     padding-left: 1%;
   }
-  /* line 120, ../sass/_general.scss */
+  /* line 131, ../sass/_general.scss */
   .l-4up > div:nth-of-type(3n) {
     padding-right: 1%;
     padding-left: 1%;
   }
-  /* line 125, ../sass/_general.scss */
+  /* line 136, ../sass/_general.scss */
   .l-4up > div:nth-of-type(4n) {
     padding-right: 0;
     padding-left: 2%;
   }
 }
 
-/* line 133, ../sass/_general.scss */
+/* line 144, ../sass/_general.scss */
 .reveal .attribute {
   font-size: 0.5em;
   color: #7f9aa0;
@@ -2603,12 +2556,12 @@ body.dark {
 /*********************************************
  * AD HOC CUSTOM CLASSES (Originally by Larry)
  *********************************************/
-/* line 144, ../sass/_general.scss */
+/* line 155, ../sass/_general.scss */
 p.bigtext {
   font-size: 150%;
 }
 
-/* line 149, ../sass/_general.scss */
+/* line 160, ../sass/_general.scss */
 .reveal ul + p, .reveal div + p {
   margin-top: 1em;
 }

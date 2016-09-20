@@ -1,340 +1,348 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>PHP-FIG: Part of a balanced PHP diet</title>
-    <meta name="author" content="Larry Garfield">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="palantirnet-theme/css/styles.css" id="theme">
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'palantirnet-theme/css/print/pdf.css' : 'palantirnet-theme/css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-    <!--[if lt IE 9]>
-    <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>PHP-FIG: Part of a balanced PHP diet</title>
+  <meta name="author" content="Larry Garfield">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="platform-reveal/platform-theme/assets/css/styles.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'platform-theme/assets/css/print/pdf.css' : 'platform-theme/assets/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
 
-    <style type="text/css">
+  <script src="platform-reveal/countup.js"></script>
 
-      .reveal img.graphic {
-        width: 100%;
-        border-radius: 5px;
-      }
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
 
-      img.screenshot {
-        border-radius: 5px;
-        width: 800px;
-      }
+  <style type="text/css">
 
-      ul.inline {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        text-align: center;
-      }
+    .reveal img.graphic {
+      width: 100%;
+      border-radius: 5px;
+    }
 
-      ul.inline li {
-        display: inline;
-      }
+    img.screenshot {
+      border-radius: 5px;
+      width: 800px;
+    }
 
-      blockquote em {
-        color: #9fc855;
-      }
+    ul.inline {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      text-align: center;
+    }
 
-      .struck {
-        text-decoration: line-through;
-      }
+    ul.inline li {
+      display: inline;
+    }
 
-      .vcenter {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-      }
+    blockquote em {
+      color: #9fc855;
+    }
 
-      .reveal pre + p {
-        margin-top: 1em;
-      }
+    .struck {
+      text-decoration: line-through;
+    }
 
-    </style>
+    .vcenter {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
 
-  </head>
-  <!-- Change body class to "dark" if you prefer a dark theme, or "light" if you'd rather have a light theme-->
-  <body class="light">
-    <div class="reveal">
-      <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
+    .reveal pre + p {
+      margin-top: 1em;
+    }
+  </style>
 
-        <section>
-          <h1>PHP-FIG</h1>
-          <h2>Part of a balanced PHP diet</h2>
-          <p>
-            <small>Presented by <a href="http://www.garfieldtech.com/">Larry Garfield</a> (<a href="http://twitter.com/Crell">@Crell</a>)</small>
-          </p>
-        </section>
-        <section class="l-2up">
-          <h2><a href="http://twitter.com/Crell">@Crell</a></h2>
-          <div>
-            <img src="assets/larry-olaf-hug.jpg" alt="Larry implements Huggable" style="width: 350px; margin: 0" />
-          </div>
-          <div>
-            <ul style="text-wrap: none">
-              <li>Senior Architect, <a href="http://www.palantir.net/">Palantir.net</a></li>
-              <li style="margin-top: 1em;">Drupal 8 Web Services Lead</li>
-              <li style="margin-top: 1em;">Drupal Representative, <a href="http://www.php-fig.org/">PHP-FIG</a></li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <section data-transition="slide-in fade-out">
-            <h2>What is PHP-FIG?</h2>
-            <a href="https://ninjagrl.com/artwork/fig"><img src="assets/fig-ninjagrlstuff.jpg" alt="The Framework Interoperability Group" data-credit="https://ninjagrl.com/artwork/fig" /></a>
-            <div>(Credit: <a href="https://twitter.com/ninjagrlstuff">@ninjagrlstuff</a>)</div>
-          </section>
-          <section data-background="assets/un-flag.svg" data-transition="fade-in fade-out" data-credit="'Flag of the United Nations' by Wilfried Huss / Anonymous - Flag of the United Nations from the Open Clip Art website. Modifications by Denelson83, Zscout370 and Madden. Official construction sheet here.United Nations (1962) The United Nations flag code and regulations, as amended November 11, 1952, New York OCLC: 7548838.. Licensed under Public Domain via Commons - https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Nations.svg#/media/File:Flag_of_the_United_Nations.svg">
-            <div class="vcenter">
-              <img src="assets/php-logo.svg" alt="PHP" data-credit="https://commons.wikimedia.org/wiki/File:PHP-logo.svg" />
-            </div>
-          </section>
-          <section data-transition="fade-in">
-            <blockquote>
-              We're a group of established PHP projects whose goal is to talk about commonalities between our projects and find ways we can work better together.
-            </blockquote>
-            <p>&mdash;PHP-FIG website</p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>In the beginning,<br />PHP was without form and void...</h2>
-          </section>
-          <section>
-            <h2>The PHP Standards Group</h2>
-            <h3>php|tek, May 2009</h3>
-          </section>
-          <section>
-            <q>We're going to have these namespace things,<br />let's use them the same way for a change!</q>
-          </section>
-          <section>
-            <img src="assets/smoke-filled-room.jpg" alt="The smoke filled room where FIG was founded." data-credit="http://www.flickr.com/photos/poagao/23385812/" />
-            <p class="fragment">(Smoke not guaranteed)</p>
-            <aside class="notes">
-              <ul>
-                <li>Not smoky, was after lunch, was light outside...</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h2>PSR-0</h2>
-            <ul>
-              <li class="fragment">One autoloading standard/convention</li>
-              <li class="fragment">Java-inspired</li>
-              <li class="fragment">PEAR-inspired</li>
-              <li class="fragment">Rudimentary, but enough</li>
-            </ul>
-          </section>
-          <section>
-            <h2>PSR-0</h2>
-            <p class="fragment" style="margin-top: 1em;"><code>&lt;vendor&gt;\Package\Whatever</code></p>
+</head>
+<!-- Change body class to "dark" if you prefer a dark theme, or "light" if you'd rather have a light theme-->
+<body class="light">
+<div class="reveal">
+  <div class="logo">
+    <p>Platform.sh</p>
+  </div>
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
 
-            <pre class="font--20 fragment"><code class="php">new \Some\Class\Name_Here();</code></pre>
-            <pre class="font--20 fragment"><code class="php">include_once $some_root . '/Some/Class/Name/Here.php';</code></pre>
+    <section>
+      <h1>PHP-FIG</h1>
+      <h2>Part of a balanced PHP diet</h2>
+      <p>
+        <small>Presented by <a href="http://www.garfieldtech.com/">Larry Garfield</a> (<a href="http://twitter.com/Crell">@Crell</a>)</small>
+      </p>
+    </section>
 
-            <pre class="font--20 fragment"><code class="php" data-trim>
+    <section class="l-2up">
+      <h2><a href="http://twitter.com/Crell">@Crell</a></h2>
+      <div>
+        <img src="assets/larry-olaf-hug.jpg" alt="Larry implements Huggable" style="width: 350px; margin: 0" />
+      </div>
+      <div>
+        <ul style="text-wrap: none">
+          <li>D.R.I.E.S., <a href="http://www.platform.sh/">Platform.sh</a></li>
+          <li style="margin-top: 1em;">Drupal 8 Web Services Lead</li>
+          <li style="margin-top: 1em;">Drupal Representative, <a href="http://www.php-fig.org/">PHP-FIG</a></li>
+          <li style="margin-top: 1em;"><code>implements Huggable</code></li>
+        </ul>
+      </div>
+    </section>
+
+     <section>
+      <section data-transition="slide-in fade-out">
+        <h2>What is PHP-FIG?</h2>
+        <a href="https://ninjagrl.com/artwork/fig"><img src="assets/fig-ninjagrlstuff.jpg" alt="The Framework Interoperability Group" data-credit="https://ninjagrl.com/artwork/fig" /></a>
+        <div>(Credit: <a href="https://twitter.com/ninjagrlstuff">@ninjagrlstuff</a>)</div>
+      </section>
+      <section data-background="assets/un-flag.svg" data-transition="fade-in fade-out" data-credit="'Flag of the United Nations' by Wilfried Huss / Anonymous - Flag of the United Nations from the Open Clip Art website. Modifications by Denelson83, Zscout370 and Madden. Official construction sheet here.United Nations (1962) The United Nations flag code and regulations, as amended November 11, 1952, New York OCLC: 7548838.. Licensed under Public Domain via Commons - https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Nations.svg#/media/File:Flag_of_the_United_Nations.svg">
+        <div class="vcenter">
+          <img src="assets/php-logo.svg" alt="PHP" data-credit="https://commons.wikimedia.org/wiki/File:PHP-logo.svg" />
+        </div>
+      </section>
+      <section data-transition="fade-in">
+        <blockquote>
+          We're a group of established PHP projects whose goal is to talk about commonalities between our projects and find ways we can work better together.
+        </blockquote>
+        <p>&mdash;PHP-FIG website</p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>In the beginning,<br />PHP was without form and void...</h2>
+      </section>
+      <section>
+        <h2>The PHP Standards Group</h2>
+        <h3>php|tek, May 2009</h3>
+      </section>
+      <section>
+        <q>We're going to have these namespace things,<br />let's use them the same way for a change!</q>
+      </section>
+      <section>
+        <img src="assets/smoke-filled-room.jpg" alt="The smoke filled room where FIG was founded." data-credit="http://www.flickr.com/photos/poagao/23385812/" />
+        <p class="fragment">(Smoke not guaranteed)</p>
+        <aside class="notes">
+          <ul>
+            <li>Not smoky, was after lunch, was light outside...</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>PSR-0</h2>
+        <ul>
+          <li class="fragment">One autoloading standard/convention</li>
+          <li class="fragment">Java-inspired</li>
+          <li class="fragment">PEAR-inspired</li>
+          <li class="fragment">Rudimentary, but enough</li>
+        </ul>
+      </section>
+      <section>
+        <h2>PSR-0</h2>
+        <p class="fragment" style="margin-top: 1em;"><code>&lt;vendor&gt;\Package\Whatever</code></p>
+
+        <pre class="font--20 fragment"><code class="php">new \Some\Class\Name_Here();</code></pre>
+        <pre class="font--20 fragment"><code class="php">include_once $some_root . '/Some/Class/Name/Here.php';</code></pre>
+
+        <pre class="font--20 fragment"><code class="php" data-trim>
 new Guzzle\Http\Client();
 // require('/some/root/path/Guzzle/Http/Client.php');
-            </code></pre>
-          </section>
-          <section>
-            <h1>Worst</h1>
-            <h1 class="fragment">Launch</h1>
-            <h1 class="fragment">Ever</h1>
-          </section>
-          <section>
-            <p>Thrown off lists.php.net, moved to Google Groups</p>
-            <p class="fragment">Admitted a few new projects</p>
-            <p class="fragment">Slept through 2010</p>
-            <p class="fragment">Debated a lot in 2011</p>
-            <aside class="notes">
-              <ul>
-                <li>4 messages in all of 2010</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h2>2012</h2>
-            <p class="fragment">Renamed to Framework Interoperability Group</p>
-            <p class="fragment bigtext">FIG</p>
-            <p class="fragment">Actually became useful!</p>
-            <aside class="notes">
-              <ul>
-                <li>Not just frameworks</li>
-                <li>PHP Interop Group = PIG</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <p>A real process!</p>
-            <p class="fragment">Only took until 2013...</p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>So who are you, exactly?</h2>
-          </section>
-          <section>
-            <p class="bigtext"><q>Projects, not people</q></p>
-            <p class="fragment bigtext">Voted in by current voting reps</p>
-            <p class="bigtext fragment"><a href="http://www.php-fig.org/members/">42 projects</a> and one community busybody</p>
-            <aside class="notes">
-              <ul>
-                <li>Projects apply for membership, with voting representative</li>
-                <li>Most voting reps are project leads, not all (Drupal, Symfony, PHP League, Sculpin)</li>
-                <li>Projects can change voting rep</li>
-                <li>Project reps answerable to project, details vary</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <p class="bigtext">Voting representatives vote</p>
-            <p class="bigtext fragment">Everything else is open to all</p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>So what does FIG, um, do?</h2>
-          </section>
-          <section>
-            <h2>PSR</h2>
-            <p class="bigtext">PHP Standard Recommendation</p>
-            <blockquote class="fragment">Scope: Any definable standard or convention that improves collaboration and interoperability.</blockquote>
-            <aside class="notes">
-              <ul>
-                <li>We discuss and vote on PSRs</li>
-              </ul>
-            </aside>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>How's it work?</h2>
-          </section>
-          <section>
-            <div>
-              <h3>Pre-Draft</h3>
-              <p>Random idea</p>
-            </div>
-            <div style="margin-top: 1em;" class="fragment">
-              <h3>Draft</h3>
-              <p>PSR number assigned</p>
-              <p>Iterate and collaborate</p>
-            </div>
-            <div style="margin-top: 1em;" class="fragment">
-              <h3>Review</h3>
-              <p>Release Candidate</p>
-            </div>
-            <div style="margin-top: 1em;" class="fragment">
-              <h3>Approved!</h3>
-              <p>Profit!!1!</p>
-            </div>
-            <aside class="notes">
-              <ul>
-                <li>Yes, approval order not numeric order</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h3>Staff</h3>
-            <dl>
-              <dt>Editor</dt>
-              <dd>Owns the work, gatekeeper</dd>
-              <dt>Sponsors (x2)</dt>
-              <dd>Supporting Voting Reps</dd>
-              <dt>Coordinator</dt>
-              <dd>Secretary</dd>
-              <dt>Contributors</dt>
-              <dd>Anyone else</dd>
-            </dl>
-          </section>
-        </section>
-        <section class="l-2up">
-          <h2>Current PSRs</h2>
-          <div class="fragment">
-            <h3>"Hard" specs</h3>
-            <ul>
-              <li><del>PSR-0 (Autoloading)</del></li>
-              <li>PSR-3 (Logging)</li>
-              <li>PSR-4 (Autoloading)</li>
-              <li>PSR-7 (HTTP Messages)</li>
-            </ul>
-          </div>
-          <div class="fragment">
-            <h3>"Soft" specs</h3>
-            <ul>
-              <li>PSR-1 (Basic coding standards)</li>
-              <li>PSR-2 (Full coding standards)</li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <section>
-            <h2>Autoloading</h2>
-            <h3><del><a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a></del> <a href="http://www.php-fig.org/psr/psr-4/">PSR-4</a></h3>
-          </section>
-          <section>
-            <div>
-              <h3>PSR-0</h3>
-              <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+      </section>
+      <section>
+        <h1>Worst</h1>
+        <h1 class="fragment">Launch</h1>
+        <h1 class="fragment">Ever</h1>
+      </section>
+      <section>
+        <p>Thrown off lists.php.net, moved to Google Groups</p>
+        <p class="fragment">Admitted a few new projects</p>
+        <p class="fragment">Slept through 2010</p>
+        <p class="fragment">Debated a lot in 2011</p>
+        <aside class="notes">
+          <ul>
+            <li>4 messages in all of 2010</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>2012</h2>
+        <p class="fragment">Renamed to Framework Interoperability Group</p>
+        <p class="fragment bigtext">FIG</p>
+        <p class="fragment">Actually became useful!</p>
+        <aside class="notes">
+          <ul>
+            <li>Not just frameworks</li>
+            <li>PHP Interop Group = PIG</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <p>A real process!</p>
+        <p class="fragment">Only took until 2013...</p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>So who are you, exactly?</h2>
+      </section>
+      <section>
+        <p class="bigtext"><q>Projects, not people</q></p>
+        <p class="fragment bigtext">Voted in by current voting reps</p>
+        <p class="bigtext fragment"><a href="http://www.php-fig.org/members/">42 projects</a> and one community busybody</p>
+        <aside class="notes">
+          <ul>
+            <li>Projects apply for membership, with voting representative</li>
+            <li>Most voting reps are project leads, not all (Drupal, Symfony, PHP League, Sculpin)</li>
+            <li>Projects can change voting rep</li>
+            <li>Project reps answerable to project, details vary</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <p class="bigtext">Voting representatives vote</p>
+        <p class="bigtext fragment">Everything else is open to all</p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>So what does FIG, um, do?</h2>
+      </section>
+      <section>
+        <h2>PSR</h2>
+        <p class="bigtext">PHP Standard Recommendation</p>
+        <blockquote class="fragment">Scope: Any definable standard or convention that improves collaboration and interoperability.</blockquote>
+        <aside class="notes">
+          <ul>
+            <li>We discuss and vote on PSRs</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>How's it work?</h2>
+      </section>
+      <section>
+        <div>
+          <h3>Pre-Draft</h3>
+          <p>Random idea</p>
+        </div>
+        <div style="margin-top: 1em;" class="fragment">
+          <h3>Draft</h3>
+          <p>PSR number assigned</p>
+          <p>Iterate and collaborate</p>
+        </div>
+        <div style="margin-top: 1em;" class="fragment">
+          <h3>Review</h3>
+          <p>Release Candidate</p>
+        </div>
+        <div style="margin-top: 1em;" class="fragment">
+          <h3>Approved!</h3>
+          <p>Profit!!1!</p>
+        </div>
+        <aside class="notes">
+          <ul>
+            <li>Yes, approval order not numeric order</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Staff</h3>
+        <dl>
+          <dt>Editor</dt>
+          <dd>Owns the work, gatekeeper</dd>
+          <dt>Sponsors (x2)</dt>
+          <dd>Supporting Voting Reps</dd>
+          <dt>Coordinator</dt>
+          <dd>Secretary</dd>
+          <dt>Contributors</dt>
+          <dd>Anyone else</dd>
+        </dl>
+      </section>
+    </section>
+    <section class="l-2up">
+      <h2>Current PSRs</h2>
+      <div class="fragment">
+        <h3>"Hard" specs</h3>
+        <ul>
+          <li><del>PSR-0 (Autoloading)</del></li>
+          <li>PSR-3 (Logging)</li>
+          <li>PSR-4 (Autoloading)</li>
+          <li>PSR-7 (HTTP Messages)</li>
+        </ul>
+      </div>
+      <div class="fragment">
+        <h3>"Soft" specs</h3>
+        <ul>
+          <li>PSR-1 (Basic coding standards)</li>
+          <li>PSR-2 (Full coding standards)</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <section>
+        <h2>Autoloading</h2>
+        <h3><del><a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a></del> <a href="http://www.php-fig.org/psr/psr-4/">PSR-4</a></h3>
+      </section>
+      <section>
+        <div>
+          <h3>PSR-0</h3>
+          <pre class="font--20"><code class="php" data-trim>
 new \Crell\HtmlModel\Head\Link_Element();
 // Results in:
 include_once $some_root . '/Crell/HtmlModel/Head/Link/Element.php';
-              </code></pre>
-            </div>
-            <div style="margin-top: 1em;" class="fragment">
-              <h3>PSR-4</h3>
-              <pre class="font--20"><code class="php" data-trim>
+          </code></pre>
+        </div>
+        <div style="margin-top: 1em;" class="fragment">
+          <h3>PSR-4</h3>
+          <pre class="font--20"><code class="php" data-trim>
 new \Crell\HtmlModel\Head\Link_Element();
 // Results in:
 include_once $some_root . '/Head/Link_Element.php';
-              </code></pre>
-            </div>
-            <p class="fragment">The prefix is externally configured</p>
-          </section>
-          <section>
-            <h3>Composer</h3>
-            <pre class="font--22"><code class="json" data-trim>
+          </code></pre>
+        </div>
+        <p class="fragment">The prefix is externally configured</p>
+      </section>
+      <section>
+        <h3>Composer</h3>
+        <pre class="font--22"><code class="json" data-trim>
 {
-    "name": "crell/htmlmodel",
-    "autoload": {
-        "psr-4": {
-            "Crell\\HtmlModel\\": "src"
-        }
+  "name": "crell/htmlmodel",
+  "autoload": {
+    "psr-4": {
+      "Crell\\HtmlModel\\": "src"
     }
+  }
 }
-            </code></pre>
-            <p class="fragment">Always use PSR-4, not PSR-0</p>
-            <p class="fragment">(<a href="https://github.com/Crell/HtmlModel/">Shameless Plug for HtmlModel</a>)</p>
-            <aside class="notes">
-              <ul>
-                <li>PSR-4 for consistent underscore handling</li>
-                <li>Prefix optional</li>
-              </ul>
-            </aside>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Logging</h2>
-            <h3><a href="http://www.php-fig.org/psr/psr-3/">PSR-3</a></h3>
-          </section>
-          <section>
-            <h3>Logger</h3>
-            <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+        <p class="fragment">Always use PSR-4, not PSR-0</p>
+        <p class="fragment">(<a href="https://github.com/Crell/HtmlModel/">Shameless Plug for HtmlModel</a>)</p>
+        <aside class="notes">
+          <ul>
+            <li>PSR-4 for consistent underscore handling</li>
+            <li>Prefix optional</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Logging</h2>
+        <h3><a href="http://www.php-fig.org/psr/psr-3/">PSR-3</a></h3>
+      </section>
+      <section>
+        <h3>Logger</h3>
+        <pre class="font--20"><code class="php" data-trim>
 namespace Psr\Log;
 
 interface LoggerInterface {
@@ -349,19 +357,19 @@ interface LoggerInterface {
   public function info($message, array $context = array());
   public function debug($message, array $context = array());
 }
-            </code></pre>
-            <aside class="notes">
-              <ul>
-                <li>log() is most important, rest are convenience</li>
-                <li>Target is log consumers, not implementers</li>
-                <li>Code lib against PSR-3, framework can use any logger</li>
-                <li>$message is string or __toString()</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h3>Log levels</h3>
-            <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+        <aside class="notes">
+          <ul>
+            <li>log() is most important, rest are convenience</li>
+            <li>Target is log consumers, not implementers</li>
+            <li>Code lib against PSR-3, framework can use any logger</li>
+            <li>$message is string or __toString()</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Log levels</h3>
+        <pre class="font--20"><code class="php" data-trim>
 namespace Psr\Log;
 
 class LogLevel
@@ -375,118 +383,118 @@ class LogLevel
     const INFO      = 'info';
     const DEBUG     = 'debug';
 }
-            </code></pre>
-            <p>Based on <a href="http://tools.ietf.org/html/rfc5424">RFC 5424</a></p>
-          </section>
-          <section>
-            <h3>LogerAware</h3>
-            <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+        <p>Based on <a href="http://tools.ietf.org/html/rfc5424">RFC 5424</a></p>
+      </section>
+      <section>
+        <h3>LogerAware</h3>
+        <pre class="font--20"><code class="php" data-trim>
 namespace Psr\Log;
 
 interface LoggerAwareInterface
 {
     public function setLogger(LoggerInterface $logger);
 }
-            </code></pre>
-            <aside class="notes">
-              <ul>
-                <li>Mainly to support auto-wiring</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h3>Context?</h3>
-            <p>Extra metadata, including placeholders</p>
-            <pre class="font--20 fragment"><code class="php" data-trim>
+        </code></pre>
+        <aside class="notes">
+          <ul>
+            <li>Mainly to support auto-wiring</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Context?</h3>
+        <p>Extra metadata, including placeholders</p>
+        <pre class="font--20 fragment"><code class="php" data-trim>
 $logger->notice("User {$username} failed to login. Hacker, maybe?");
-            </code></pre>
-            <pre style="margin-top: 1em;" class="font--20 fragment"><code class="php" data-trim>
+        </code></pre>
+        <pre style="margin-top: 1em;" class="font--20 fragment"><code class="php" data-trim>
 $username = "'; DROP TABLE students; --";
-            </code></pre>
-            <pre style="margin-top: 1em;" class="font--20 fragment"><code class="php" data-trim>
+        </code></pre>
+        <pre style="margin-top: 1em;" class="font--20 fragment"><code class="php" data-trim>
 $username = "&lt;script>alert('Bobby Tables is so cute.');&lt;/script>";
-            </code></pre>
-            <p style="margin-top: 1em;" class="fragment">Can't know output target in advance</p>
-          </section>
-          <section>
-            <h3>Secure logging</h3>
-            <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+        <p style="margin-top: 1em;" class="fragment">Can't know output target in advance</p>
+      </section>
+      <section>
+        <h3>Secure logging</h3>
+        <pre class="font--20"><code class="php" data-trim>
 $logger->notice("User {username} failed to login. Hacker, maybe?", [
   'username' => $username,
 ]);
-            </code></pre>
-            <p style="margin-top: 1em;" class="fragment">Inspired by Drupal watchdog()/t()</p>
-          </section>
-          <section>
-            <h3>Logging exceptions</h3>
-            <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+        <p style="margin-top: 1em;" class="fragment">Inspired by Drupal watchdog()/t()</p>
+      </section>
+      <section>
+        <h3>Logging exceptions</h3>
+        <pre class="font--20"><code class="php" data-trim>
 try {
   do_something_dangerous();
 }
 catch (\Exception $e) {
   $logger->error("Well that escalated quickly.", ['exception' => $e]);
 }
-            </code></pre>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>HTTP Messages</h2>
-            <h3><a href="http://www.php-fig.org/psr/psr-7/">PSR-7</a></h3>
-            <p class="fragment bigtext">Go to Beau's section next!</p>
-            <aside class="notes">
-              <ul>
-                <li>Most important PSR to date</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h2>CGI sucks</h2>
-          </section>
-          <section>
-            <h2><a href="https://en.wikipedia.org/wiki/Common_Gateway_Interface">Common Gateway Interface</a></h2>
+        </code></pre>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>HTTP Messages</h2>
+        <h3><a href="http://www.php-fig.org/psr/psr-7/">PSR-7</a></h3>
+        <p class="fragment bigtext">Go to Beau's section next!</p>
+        <aside class="notes">
+          <ul>
+            <li>Most important PSR to date</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>CGI sucks</h2>
+      </section>
+      <section>
+        <h2><a href="https://en.wikipedia.org/wiki/Common_Gateway_Interface">Common Gateway Interface</a></h2>
+        <ul>
+          <li class="fragment">NCSA, 1993</li>
+          <li class="fragment">"specification for calling command line executables"</li>
+          <li class="fragment">Pass environment variables to script</li>
+          <li class="fragment"><code>$_SERVER</code></li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Older than many people in this room</li>
+            <li>Why is $_SERVER so weird?  CGI.</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Super globals!</h3>
+        <img src="assets/picard-riker-facepalm.jpg" alt="Picard-Riker Face Palm" />
+      </section>
+      <section>
+        <p class="bigtext">HTTP Messages should be objects!</p>
+        <p class="bigtext fragment">(Message passing, yo.)</p>
+      </section>
+      <section>
+        <h2>\Psr\Http\Message</h2>
+        <ul>
+          <li><i>MessageInterface</i>
             <ul>
-              <li class="fragment">NCSA, 1993</li>
-              <li class="fragment">"specification for calling command line executables"</li>
-              <li class="fragment">Pass environment variables to script</li>
-              <li class="fragment"><code>$_SERVER</code></li>
-            </ul>
-            <aside class="notes">
-              <ul>
-                <li>Older than many people in this room</li>
-                <li>Why is $_SERVER so weird?  CGI.</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h3>Super globals!</h3>
-            <img src="assets/picard-riker-facepalm.jpg" alt="Picard-Riker Face Palm" />
-          </section>
-          <section>
-            <p class="bigtext">HTTP Messages should be objects!</p>
-            <p class="bigtext fragment">(Message passing, yo.)</p>
-          </section>
-          <section>
-            <h2>\Psr\Http\Message</h2>
-            <ul>
-              <li><i>MessageInterface</i>
+              <li>RequestInterface
                 <ul>
-                  <li>RequestInterface
-                    <ul>
-                      <li>ServerRequestInterface</li>
-                    </ul>
-                  </li>
-                  <li>ResponseInterface</li>
+                  <li>ServerRequestInterface</li>
                 </ul>
               </li>
-              <li>StreamInterface</li>
-              <li>UriInterface</li>
-              <li>UploadedFileInterface</li>
+              <li>ResponseInterface</li>
             </ul>
-          </section>
-          <section>
-            <h2>Immutable objects</h2>
-            <pre class="font--20"><code class="php" data-trim>
+          </li>
+          <li>StreamInterface</li>
+          <li>UriInterface</li>
+          <li>UploadedFileInterface</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Immutable objects</h2>
+        <pre class="font--20"><code class="php" data-trim>
 $response = new Response();
 
 $response = $response->withStatusCode(200);
@@ -495,25 +503,25 @@ $response = $response->withHeader('Content-Type', 'application/json');
 $response = $response
   ->withHeader('Cache-Control', 'public')
   ->withAddedHeader('Cache-Control', 'max-age=300');
-            </code></pre>
-            <aside class="notes">
-              <ul>
-                <li>Immutable = predictability = fewer bugs</li>
-                <li>Copy-on-write means good performance</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h2>Streams</h2>
-            <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+        <aside class="notes">
+          <ul>
+            <li>Immutable = predictability = fewer bugs</li>
+            <li>Copy-on-write means good performance</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Streams</h2>
+        <pre class="font--20"><code class="php" data-trim>
 $body = new PsrFileStream('secret_plans.odt');
 $response = $response->withBody($body);
-            </code></pre>
-            <pre style="margin-top: 1em;" class="fragment font--20"><code class="php" data-trim>
+        </code></pre>
+        <pre style="margin-top: 1em;" class="fragment font--20"><code class="php" data-trim>
 $body = new StringStream($htmlData);
 $response = $response->withBody($body);
-            </code></pre>
-            <pre style="margin-top: 1em;" class="fragment font--20"><code class="php" data-trim>
+        </code></pre>
+        <pre style="margin-top: 1em;" class="fragment font--20"><code class="php" data-trim>
 $callback = function() use ($data) {
   foreach ($data as $record) {
     return implode(', ', $record);
@@ -522,123 +530,123 @@ $callback = function() use ($data) {
 
 $body = new CallbackStream($callback);
 $response = $response->withBody($body);
-            </code></pre>
-            <aside class="notes">
-              <ul>
-                <li>Abstracts all 3 types of output</li>
-                <li>Not native streams, but can be backed by</li>
-                <li>Streams not immutable! Can't be.</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h2>UriInterface</h2>
-            <p class="fragment">URIs are way more complicated than you think</p>
-            <p class="fragment">More portable and predictable than parse_url()</p>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Coding standards</h2>
-            <h3><a href="http://www.php-fig.org/psr/psr-1/">PSR-1</a> <a href="http://www.php-fig.org/psr/psr-2/">PSR-2</a></h3>
-          </section>
-          <section>
-            <p class="bigtext">The most needlessly controversial specs ever</p>
-          </section>
-          <section>
-            <h2>PSR-1</h2>
-            <p>Runtime-important standards</p>
-            <ul>
-              <li class="fragment">No short-tags</li>
-              <li class="fragment">UTF-8 files</li>
-              <li class="fragment"><code>ClassName::methodName</code> and <code>ClassName::CONSTANT</code></li>
-              <li class="fragment">Use an autoloader</li>
-              <li class="fragment">Declare symbols or execute code, not both</li>
-            </ul>
-            <p class="fragment">You're probably doing this already.</p>
-          </section>
-          <section>
-            <h2>PSR-2</h2>
-            <p>Stylistic standards</p>
-            <ul>
-              <li class="fragment">4-space indentation</li>
-              <li class="fragment">One-true-brace alignment</li>
-              <li class="fragment">...</li>
-            </ul>
-            <p class="fragment">That there is a standard matters more than what it is</p>
-            <aside class="notes">
-              <ul>
-                <li>Most projects now use PSR-2-ish</li>
-                <li>Most IDEs/tools now have PSR-2 defaults</li>
-                <li>Good or bad, get used to it.</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <p class="bigtext">PHP 7 updates coming in PSR-12...</p>
-            <p class="fragment bigtext">(Eventually)</p>
-          </section>
-        </section>
-        <section class="l-2up">
-          <h2>Upcoming PSRs</h2>
-          <div class="fragment">
-            <h3>"Hard" specs</h3>
-            <ul>
-              <li>PSR-5 (PHPDoc)</li>
-              <li>PSR-6 (Caching)</li>
-              <li>PSR-9 (Security Disclosure)</li>
-              <li>PSR-11 (Container)</li>
-            </ul>
-          </div>
-          <div class="fragment">
-            <h3>"Soft" specs</h3>
-            <ul>
-              <li>PSR-10 (Security Advisories)</li>
-              <li>PSR-12 (Coding Styles, again)</li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <section>
-            <h2>PHP Doc</h2>
-            <h3><a href="https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md">PSR-5</a></h3>
-          </section>
-          <section>
-            <h2>PSR-5</h2>
-            <ul>
-              <li class="fragment">A formal spec for PHPDoc</li>
-              <li class="fragment">Looooong</li>
-              <li class="fragment">May be split up?</li>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Caching</h2>
-            <h3><a href="https://github.com/phpDocumentor/fig-standards/blob/master/proposed/cache.md">PSR-6</a></h3>
-          </section>
-          <section>
-            <h2>PSR-6</h2>
-            <p>Similar goal as Logging</p>
-            <aside class="notes">
-              <ul>
-                <li>Make it easy for libs to cache to unknown store</li>
-                <li>Inject cache, read/write, kxthxbye</li>
-                <li>Look-aside cache (other models exist)</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h2>\Psr\Cache</h2>
-            <ul>
-              <li>CacheItemInterface</li>
-              <li>CacheItemPoolInterface</li>
-            </ul>
-            <p class="fragment">Repository model</p>
-          </section>
-          <section>
-            <h2>Simple caching</h2>
-            <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+        <aside class="notes">
+          <ul>
+            <li>Abstracts all 3 types of output</li>
+            <li>Not native streams, but can be backed by</li>
+            <li>Streams not immutable! Can't be.</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>UriInterface</h2>
+        <p class="fragment">URIs are way more complicated than you think</p>
+        <p class="fragment">More portable and predictable than parse_url()</p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Coding standards</h2>
+        <h3><a href="http://www.php-fig.org/psr/psr-1/">PSR-1</a> <a href="http://www.php-fig.org/psr/psr-2/">PSR-2</a></h3>
+      </section>
+      <section>
+        <p class="bigtext">The most needlessly controversial specs ever</p>
+      </section>
+      <section>
+        <h2>PSR-1</h2>
+        <p>Runtime-important standards</p>
+        <ul>
+          <li class="fragment">No short-tags</li>
+          <li class="fragment">UTF-8 files</li>
+          <li class="fragment"><code>ClassName::methodName</code> and <code>ClassName::CONSTANT</code></li>
+          <li class="fragment">Use an autoloader</li>
+          <li class="fragment">Declare symbols or execute code, not both</li>
+        </ul>
+        <p class="fragment">You're probably doing this already.</p>
+      </section>
+      <section>
+        <h2>PSR-2</h2>
+        <p>Stylistic standards</p>
+        <ul>
+          <li class="fragment">4-space indentation</li>
+          <li class="fragment">One-true-brace alignment</li>
+          <li class="fragment">...</li>
+        </ul>
+        <p class="fragment">That there is a standard matters more than what it is</p>
+        <aside class="notes">
+          <ul>
+            <li>Most projects now use PSR-2-ish</li>
+            <li>Most IDEs/tools now have PSR-2 defaults</li>
+            <li>Good or bad, get used to it.</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <p class="bigtext">PHP 7 updates coming in PSR-12...</p>
+        <p class="fragment bigtext">(Eventually)</p>
+      </section>
+    </section>
+    <section class="l-2up">
+      <h2>Upcoming PSRs</h2>
+      <div class="fragment">
+        <h3>"Hard" specs</h3>
+        <ul>
+          <li>PSR-5 (PHPDoc)</li>
+          <li>PSR-6 (Caching)</li>
+          <li>PSR-9 (Security Disclosure)</li>
+          <li>PSR-11 (Container)</li>
+        </ul>
+      </div>
+      <div class="fragment">
+        <h3>"Soft" specs</h3>
+        <ul>
+          <li>PSR-10 (Security Advisories)</li>
+          <li>PSR-12 (Coding Styles, again)</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <section>
+        <h2>PHP Doc</h2>
+        <h3><a href="https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md">PSR-5</a></h3>
+      </section>
+      <section>
+        <h2>PSR-5</h2>
+        <ul>
+          <li class="fragment">A formal spec for PHPDoc</li>
+          <li class="fragment">Looooong</li>
+          <li class="fragment">May be split up?</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Caching</h2>
+        <h3><a href="https://github.com/phpDocumentor/fig-standards/blob/master/proposed/cache.md">PSR-6</a></h3>
+      </section>
+      <section>
+        <h2>PSR-6</h2>
+        <p>Similar goal as Logging</p>
+        <aside class="notes">
+          <ul>
+            <li>Make it easy for libs to cache to unknown store</li>
+            <li>Inject cache, read/write, kxthxbye</li>
+            <li>Look-aside cache (other models exist)</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>\Psr\Cache</h2>
+        <ul>
+          <li>CacheItemInterface</li>
+          <li>CacheItemPoolInterface</li>
+        </ul>
+        <p class="fragment">Repository model</p>
+      </section>
+      <section>
+        <h2>Simple caching</h2>
+        <pre class="font--20"><code class="php" data-trim>
 class MyService {
   protected $pool;
 
@@ -661,11 +669,11 @@ class MyService {
     return $item->get();
   }
 }
-            </code></pre>
-          </section>
-          <section>
-            <h2>Bulk operations</h2>
-            <pre class="font--20"><code class="php" data-trim>
+        </code></pre>
+      </section>
+      <section>
+        <h2>Bulk operations</h2>
+        <pre class="font--20"><code class="php" data-trim>
 class MyService {
   protected $pool;
 
@@ -689,11 +697,11 @@ class MyService {
     return $this->pool->getMultiple($list);
   }
 }
-            </code></pre>
-          </section>
-          <section>
-            <h2>Read-through caching</h2>
-            <pre class="font--18"><code class="php" data-trim>
+        </code></pre>
+      </section>
+      <section>
+        <h2>Read-through caching</h2>
+        <pre class="font--18"><code class="php" data-trim>
 interface ImportantInterface {
   public function doExpensiveStuff($param);
 }
@@ -721,58 +729,58 @@ class CacheWrapper implements ImportantInterface {
     return $item->get();
   }
 }
-            </code></pre>
-          </section>
-          <section>
-            <h2>Extensible</h2>
-            <ul>
-              <li class="fragment">Add interface to both pool and item</li>
-              <li class="fragment">Tagging, namespaces, etc.</li>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Security</h2>
-            <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">PSR-9</a> <a href="https://github.com/php-fig/fig-standards/pull/473">PSR-10</a></h3>
-          </section>
-          <section>
-            <h2>Security</h2>
-            <dl>
-              <dt>PSR-9</dt>
-              <dd>Process</dd>
-              <dd>Reporting mechanisms</dd>
-              <dt>PSR-10</dt>
-              <dd>Security Advisory format</dd>
-            </dl>
-          </section>
-          <section>
-            <p>Open alternative to <a href="https://security.sensiolabs.org/">Sensio Labs Security Advisory Checker</a></p>
-            <div style="margin-top: 1em;" class="fragment">
-              <p><q>Am I vulnerable?</q></p>
-              <p><span style="text-decoration: underline">Yep</span>&nbsp;&nbsp;<span style="text-decoration: underline">Nope</span></p>
-            </div>
-            <aside class="notes">
-              <ul>
-                <li>Project publishes feed of SAs</li>
-                <li>Anyone can build tools to aggregate, validate, check</li>
-              </ul>
-            </aside>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Containers</h2>
-            <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/container.md">PSR-11</a></h3>
-            <aside class="notes">
-              <ul>
-                <li>Controversial, but passed entrance vote</li>
-              </ul>
-            </aside>
-          </section>
-          <section>
-            <h2>ContainerInterface</h2>
-            <pre class="font--18"><code class="php" data-trim>
+        </code></pre>
+      </section>
+      <section>
+        <h2>Extensible</h2>
+        <ul>
+          <li class="fragment">Add interface to both pool and item</li>
+          <li class="fragment">Tagging, namespaces, etc.</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Security</h2>
+        <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">PSR-9</a> <a href="https://github.com/php-fig/fig-standards/pull/473">PSR-10</a></h3>
+      </section>
+      <section>
+        <h2>Security</h2>
+        <dl>
+          <dt>PSR-9</dt>
+          <dd>Process</dd>
+          <dd>Reporting mechanisms</dd>
+          <dt>PSR-10</dt>
+          <dd>Security Advisory format</dd>
+        </dl>
+      </section>
+      <section>
+        <p>Open alternative to <a href="https://security.sensiolabs.org/">Sensio Labs Security Advisory Checker</a></p>
+        <div style="margin-top: 1em;" class="fragment">
+          <p><q>Am I vulnerable?</q></p>
+          <p><span style="text-decoration: underline">Yep</span>&nbsp;&nbsp;<span style="text-decoration: underline">Nope</span></p>
+        </div>
+        <aside class="notes">
+          <ul>
+            <li>Project publishes feed of SAs</li>
+            <li>Anyone can build tools to aggregate, validate, check</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Containers</h2>
+        <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/container.md">PSR-11</a></h3>
+        <aside class="notes">
+          <ul>
+            <li>Controversial, but passed entrance vote</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>ContainerInterface</h2>
+        <pre class="font--18"><code class="php" data-trim>
 namespace Psr\Container;
 
 interface ContainerInterface
@@ -781,55 +789,55 @@ interface ContainerInterface
 
     public function has(string $id);
 }
-            </code></pre>
-            <p>(So far)</p>
-          </section>
-          <section>
-            <p>For factories and other edge cases</p>
-            <p style="margin-top: 1em;" class="fragment">And delegation</p>
-            <aside class="notes">
-              <ul>
-                <li>Nesting containers together</li>
-                <li>One lib can ship its own container, main app can stitch them together</li>
-                <li>This is the controversial part.</li>
-              </ul>
-            </aside>
-          </section>
-        </section>
-        <section>
-          <section>
-            <p class="bigtext">The goal of FIG is to encourage collaboration</p>
-            <p class="fragment bigtext">Collaboration builds interoperability</p>
-            <p class="fragment bigtext">... and community</p>
-          </section>
-          <section class="l-2up">
-            <h2>Success</h2>
-            <div class="fragment">
-              <h3>PSR-3</h3>
-              <ul>
-                <li>18 million installs</li>
-                <li>1277 dependants</li>
-              </ul>
-            </div>
-            <div class="fragment">
-              <h3>PSR-7</h3>
-                <ul>
-                  <li>1.4 million installs</li>
-                  <li>278 dependants</li>
-                  <li>middlewares</li>
-                </ul>
-            </div>
-            <p class="fragment" style="margin-top: 4em;">(Source, Packagist.org, November 2015)</p>
-          </section>
-          <section>
-            <p class="bigtext">Our biggest success...</p>
-            <div class="fragment">
-              <h2>Huggable</h2>
-              <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/psr-8-hug/psr-8-hug.md">PSR-8</a></h3>
-            </div>
-          </section>
-          <section>
-            <pre class="font--18"><code class="php" data-trim>
+        </code></pre>
+        <p>(So far)</p>
+      </section>
+      <section>
+        <p>For factories and other edge cases</p>
+        <p style="margin-top: 1em;" class="fragment">And delegation</p>
+        <aside class="notes">
+          <ul>
+            <li>Nesting containers together</li>
+            <li>One lib can ship its own container, main app can stitch them together</li>
+            <li>This is the controversial part.</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <p class="bigtext">The goal of FIG is to encourage collaboration</p>
+        <p class="fragment bigtext">Collaboration builds interoperability</p>
+        <p class="fragment bigtext">... and community</p>
+      </section>
+      <section class="l-2up">
+        <h2>Success</h2>
+        <div class="fragment">
+          <h3>PSR-3</h3>
+          <ul>
+            <li>18 million installs</li>
+            <li>1277 dependants</li>
+          </ul>
+        </div>
+        <div class="fragment">
+          <h3>PSR-7</h3>
+            <ul>
+              <li>1.4 million installs</li>
+              <li>278 dependants</li>
+              <li>middlewares</li>
+            </ul>
+        </div>
+        <p class="fragment" style="margin-top: 4em;">(Source, Packagist.org, November 2015)</p>
+      </section>
+      <section>
+        <p class="bigtext">Our biggest success...</p>
+        <div class="fragment">
+          <h2>Huggable</h2>
+          <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/psr-8-hug/psr-8-hug.md">PSR-8</a></h3>
+        </div>
+      </section>
+      <section>
+        <pre class="font--18"><code class="php" data-trim>
 namespace Psr\Hug;
 
 interface Huggable
@@ -841,64 +849,60 @@ interface GroupHuggable extends Huggable
 {
   public function groupHug($huggables);
 }
-            </code></pre>
-          </section>
-          <section>
-            <h2>Bulgaria PHP Draft implementation</h2>
-            <img src="assets/bulgaria-php-hug.jpg" data-credit="https://twitter.com/bgphp/status/648545467295531008" />
-            <aside class="notes">
-              <ul>
-                <li>Interoperability is about working together</li>
-                <li>Make PHP a better ecosystem for everyone</li>
-                <li>Projects are talking to each other more</li>
-                <li>Even if not a PSR, it's a channel for collaboration</li>
-              </ul>
-            </aside>
-          </section>
-        </section>
-        <section id="final">
-          <h2>Larry Garfield</h2>
-          <p>Senior Architect, <a href="http://www.palantir.net/">Palantir.net</a></p>
-          <p>Let's Make Something Good Together.</p>
-          <p>Keep tabs on our work at <a href="http://twitter.com/Palantir">@Palantir</a></p>
-        </section>
-      </div>
-      <footer class="footer">
-        <a class="logo-wrapper" href="https://www.palantir.net/" title="Link to Palantir.net's website">
-          <div class="logo">
-            <p>Palantir.net</p>
-          </div>
-        </a>
-      </footer>
-    </div>
+        </code></pre>
+      </section>
+      <section>
+        <h2>Bulgaria PHP Draft implementation</h2>
+        <img src="assets/bulgaria-php-hug.jpg" data-credit="https://twitter.com/bgphp/status/648545467295531008" />
+        <aside class="notes">
+          <ul>
+            <li>Interoperability is about working together</li>
+            <li>Make PHP a better ecosystem for everyone</li>
+            <li>Projects are talking to each other more</li>
+            <li>Even if not a PSR, it's a channel for collaboration</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
 
-    <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.js"></script>
+    <section id="final">
+      <h2>Larry Garfield</h2>
+      <p>Director of Runtimes and Integrations <a href="http://www.platform.sh/">Platform.sh</a></p>
+      <p>Continuous Deployment Cloud Hosting</p>
+      <p>Stalk us at <a href="http://twitter.com/Platformsh">@PlatformSH</a></p>
+    </section>
 
-    <script>
+  </div>
 
-      // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
+</div>
 
-        transition: 'slide', // none/fade/slide/convex/concave/zoom
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
 
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'plugin/zoom-js/zoom.js', async: true },
-          { src: 'plugin/notes/notes.js', async: true }
-        ]
-      });
+<script>
 
-    </script>
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
 
-  </body>
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+    ]
+  });
+
+</script>
+
+</body>
 </html>
