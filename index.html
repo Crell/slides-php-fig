@@ -834,6 +834,101 @@ interface LinkCollectionInterface
       </section>
     </section>
     <section>
+      <h2>Event Manager</h2>
+      <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/event-manager.md">PSR-14</a></h3>
+      <p class="fragment">Still early, over-complicated</p>
+      <aside class="notes">
+        <ul>
+          <li>~ Symfony EventDispatcher</li>
+          <li>Has been idle a while</li>
+        </ul>
+      </aside>
+    </section>
+    <section>
+      <section>
+        <h2>HTTP Message tooling</h2>
+        <h3>
+          <a href="https://github.com/php-fig/fig-standards/blob/master/proposed/http-middleware/middleware.md">PSR-15</a>
+          <a href="https://github.com/php-fig/fig-standards/blob/master/proposed/http-factory/http-factory.md">PSR-17</a>
+        </h3>
+      </section>
+      <section>
+        <h3>HTTP Factories</h3>
+        <ul>
+          <li>RequestFactoryInterface</li>
+          <li>ResponseFactoryInterface</li>
+          <li>ServerRequestFactoryInterface</li>
+          <li>StreamFactoryInterface</li>
+          <li>UploadedFileFactoryInterface</li>
+          <li>UriFactoryInterface</li>
+        </ul>
+      </section>
+      <section>
+        <h3>HTTP Middleware</h3>
+        <pre class="font--18"><code class="php" data-trim>
+namespace Psr\Http\Middleware;
+
+interface ServerMiddlewareInterface extends MiddlewareInterface
+{
+    public function process(ServerRequestInterface $request, DelegateInterface $frame);
+}
+
+interface DelegateInterface
+{
+    public function next(RequestInterface $request);
+}
+        </code></pre>
+      </section>
+      <section>
+        <pre class="font--18"><code class="php" data-trim>
+class Foo implements ServerMiddlewareInterface
+{
+    // ... Constructor here.
+
+    public function process(ServerRequestInterface $request, DelegateInterface $delegate) {
+        // Pass on the request to the next middleware.
+        $response = $delegate->next($request);
+
+        // Or create one yourself.
+        return $this->responseFactory->createResponse(
+            $this->streamFactory->createTempStream('Hello world'),
+            200
+        );
+    }
+}
+        </code></pre>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Simplified caching</h2>
+        <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/simplecache.md">PSR-16</a></h3>
+      </section>
+      <section>
+        <pre class="font--18"><code class="php" data-trim>
+namespace Psr\SimpleCache;
+
+interface CacheInterface
+{
+    public function get($key);
+    public function set($key, $value, $ttl = null);
+    public function delete($key);
+    public function clear();
+    public function getMultiple($keys);
+    public function setMultiple($items, $ttl = null);
+    public function deleteMultiple($keys);
+    public function exists($key);
+}
+        </code></pre>
+        <p class="fragment">Easy "wrapper" for PSR-6</p>
+        <aside class="notes">
+          <ul>
+            <li>PSR-6 bridge trait readily available.</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
       <section>
         <p class="bigtext">The goal of FIG is to encourage collaboration</p>
         <p class="fragment bigtext">Collaboration builds interoperability</p>
