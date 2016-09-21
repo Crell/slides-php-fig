@@ -98,12 +98,21 @@
         </ul>
       </div>
     </section>
-
-     <section>
+    <section>
       <section data-transition="slide-in fade-out">
         <h2>What is PHP-FIG?</h2>
         <a href="https://ninjagrl.com/artwork/fig"><img src="assets/fig-ninjagrlstuff.jpg" alt="The Framework Interoperability Group" data-credit="https://ninjagrl.com/artwork/fig" /></a>
         <div>(Credit: <a href="https://twitter.com/ninjagrlstuff">@ninjagrlstuff</a>)</div>
+      </section>
+      <section>
+        <h2>What is PHP-FIG?</h2>
+        <h2 class="fragment">An open question...</h2>
+        <aside class="notes">
+          <ul>
+            <li>In flux as we speak...</li>
+            <li>Open vote now...</li>
+          </ul>
+        </aside>
       </section>
       <section data-background="assets/un-flag.svg" data-transition="fade-in fade-out" data-credit="'Flag of the United Nations' by Wilfried Huss / Anonymous - Flag of the United Nations from the Open Clip Art website. Modifications by Denelson83, Zscout370 and Madden. Official construction sheet here.United Nations (1962) The United Nations flag code and regulations, as amended November 11, 1952, New York OCLC: 7548838.. Licensed under Public Domain via Commons - https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Nations.svg#/media/File:Flag_of_the_United_Nations.svg">
         <div class="vcenter">
@@ -278,6 +287,7 @@ new Guzzle\Http\Client();
           <li><del>PSR-0 (Autoloading)</del></li>
           <li>PSR-3 (Logging)</li>
           <li>PSR-4 (Autoloading)</li>
+          <li>PSR-6 (Caching)</li>
           <li>PSR-7 (HTTP Messages)</li>
         </ul>
       </div>
@@ -439,6 +449,125 @@ catch (\Exception $e) {
     </section>
     <section>
       <section>
+        <h2>Caching</h2>
+        <h3><a href="http://www.php-fig.org/psr/psr-6/">PSR-6</a></h3>
+      </section>
+      <section>
+        <h2>PSR-6</h2>
+        <p>Similar goal as Logging</p>
+        <aside class="notes">
+          <ul>
+            <li>Make it easy for libs to cache to unknown store</li>
+            <li>Inject cache, read/write, kxthxbye</li>
+            <li>Look-aside cache (other models exist)</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>\Psr\Cache</h2>
+        <ul>
+          <li>CacheItemInterface</li>
+          <li>CacheItemPoolInterface</li>
+        </ul>
+        <p class="fragment">Repository model</p>
+      </section>
+      <section>
+        <h2>Simple caching</h2>
+        <pre class="font--20"><code class="php" data-trim>
+class MyService {
+  protected $pool;
+
+  public function __construct(CacheItemPoolInterface $pool) {
+    $this->pool = $pool;
+  }
+
+  public function getWidgetList() {
+    $item = $this->pool->getItem('widget_list');
+
+    if (!$item->isHit()) {
+      $value = $this->computeExpensiveWidgetList();
+
+      $item
+        ->set($value)
+        ->expiresAt(new DateTime('now +1 hour'));
+
+      $this->pool->save($item);
+    }
+    return $item->get();
+  }
+}
+        </code></pre>
+      </section>
+      <section>
+        <h2>Bulk operations</h2>
+        <pre class="font--20"><code class="php" data-trim>
+class MyService {
+  protected $pool;
+
+  // ...
+
+  public function warmCache() {
+    foreach ($this->widgets as $widget) {
+
+      $item = $this->pool->getItem('widget-' . $widget->id());
+
+      $item->set($this->computeExpensiveValue($widget));
+
+      $this->pool->saveDeferred($item);
+    }
+    $this->pool->commit();
+  }
+
+  public function getWidgetInfo(array $ids) {
+    $list = array_map(function($id) {return 'widget-' . $id; }, $ids);
+
+    return $this->pool->getMultiple($list);
+  }
+}
+        </code></pre>
+      </section>
+      <section>
+        <h2>Read-through caching</h2>
+        <pre class="font--18"><code class="php" data-trim>
+interface ImportantInterface {
+  public function doExpensiveStuff($param);
+}
+
+class Important implements ImportantInterface {
+  public function doExpensiveStuff($param) {
+    // ...
+  }
+}
+
+class CacheWrapper implements ImportantInterface {
+  public function __construct(CacheItemPoolInterface $pool, ImportantInterface $wrapped) {
+    $this->pool = $pool;
+    $this->wrapped = $wrapped;
+  }
+
+  public function doExpensiveStuff($param) {
+    $item = $this->pool->getItem(__CLASS__ . __METHOD__);
+
+    if (!$item->isHit()) {
+      $item->set($this->wrapped->doExpensiveStuff($param));
+      $this->pool->save($item);
+    }
+
+    return $item->get();
+  }
+}
+        </code></pre>
+      </section>
+      <section>
+        <h2>Extensible</h2>
+        <ul>
+          <li class="fragment">Add interface to both pool and item</li>
+          <li class="fragment">Tagging, namespaces, etc.</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <section>
         <h2>HTTP Messages</h2>
         <h3><a href="http://www.php-fig.org/psr/psr-7/">PSR-7</a></h3>
         <p class="fragment bigtext">Go to Beau's section next!</p>
@@ -592,8 +721,6 @@ $response = $response->withBody($body);
       <div class="fragment">
         <h3>"Hard" specs</h3>
         <ul>
-          <li>PSR-5 (PHPDoc)</li>
-          <li>PSR-6 (Caching)</li>
           <li>PSR-9 (Security Disclosure)</li>
           <li>PSR-11 (Container)</li>
         </ul>
@@ -605,139 +732,6 @@ $response = $response->withBody($body);
           <li>PSR-12 (Coding Styles, again)</li>
         </ul>
       </div>
-    </section>
-    <section>
-      <section>
-        <h2>PHP Doc</h2>
-        <h3><a href="https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md">PSR-5</a></h3>
-      </section>
-      <section>
-        <h2>PSR-5</h2>
-        <ul>
-          <li class="fragment">A formal spec for PHPDoc</li>
-          <li class="fragment">Looooong</li>
-          <li class="fragment">May be split up?</li>
-        </ul>
-      </section>
-    </section>
-    <section>
-      <section>
-        <h2>Caching</h2>
-        <h3><a href="https://github.com/phpDocumentor/fig-standards/blob/master/proposed/cache.md">PSR-6</a></h3>
-      </section>
-      <section>
-        <h2>PSR-6</h2>
-        <p>Similar goal as Logging</p>
-        <aside class="notes">
-          <ul>
-            <li>Make it easy for libs to cache to unknown store</li>
-            <li>Inject cache, read/write, kxthxbye</li>
-            <li>Look-aside cache (other models exist)</li>
-          </ul>
-        </aside>
-      </section>
-      <section>
-        <h2>\Psr\Cache</h2>
-        <ul>
-          <li>CacheItemInterface</li>
-          <li>CacheItemPoolInterface</li>
-        </ul>
-        <p class="fragment">Repository model</p>
-      </section>
-      <section>
-        <h2>Simple caching</h2>
-        <pre class="font--20"><code class="php" data-trim>
-class MyService {
-  protected $pool;
-
-  public function __construct(CacheItemPoolInterface $pool) {
-    $this->pool = $pool;
-  }
-
-  public function getWidgetList() {
-    $item = $this->pool->getItem('widget_list');
-
-    if (!$item->isHit()) {
-      $value = $this->computeExpensiveWidgetList();
-
-      $item
-        ->set($value)
-        ->expiresAt(new DateTime('now +1 hour'));
-
-      $this->pool->save($item);
-    }
-    return $item->get();
-  }
-}
-        </code></pre>
-      </section>
-      <section>
-        <h2>Bulk operations</h2>
-        <pre class="font--20"><code class="php" data-trim>
-class MyService {
-  protected $pool;
-
-  // ...
-
-  public function warmCache() {
-    foreach ($this->widgets as $widget) {
-
-      $item = $this->pool->getItem('widget-' . $widget->id());
-
-      $item->set($this->computeExpensiveValue($widget));
-
-      $this->pool->saveDeferred($item);
-    }
-    $this->pool->commit();
-  }
-
-  public function getWidgetInfo(array $ids) {
-    $list = array_map(function($id) {return 'widget-' . $id; }, $ids);
-
-    return $this->pool->getMultiple($list);
-  }
-}
-        </code></pre>
-      </section>
-      <section>
-        <h2>Read-through caching</h2>
-        <pre class="font--18"><code class="php" data-trim>
-interface ImportantInterface {
-  public function doExpensiveStuff($param);
-}
-
-class Important implements ImportantInterface {
-  public function doExpensiveStuff($param) {
-    // ...
-  }
-}
-
-class CacheWrapper implements ImportantInterface {
-  public function __construct(CacheItemPoolInterface $pool, ImportantInterface $wrapped) {
-    $this->pool = $pool;
-    $this->wrapped = $wrapped;
-  }
-
-  public function doExpensiveStuff($param) {
-    $item = $this->pool->getItem(__CLASS__ . __METHOD__);
-
-    if (!$item->isHit()) {
-      $item->set($this->wrapped->doExpensiveStuff($param));
-      $this->pool->save($item);
-    }
-
-    return $item->get();
-  }
-}
-        </code></pre>
-      </section>
-      <section>
-        <h2>Extensible</h2>
-        <ul>
-          <li class="fragment">Add interface to both pool and item</li>
-          <li class="fragment">Tagging, namespaces, etc.</li>
-        </ul>
-      </section>
     </section>
     <section>
       <section>
@@ -815,19 +809,19 @@ interface ContainerInterface
         <div class="fragment">
           <h3>PSR-3</h3>
           <ul>
-            <li>18 million installs</li>
-            <li>1277 dependants</li>
+            <li>38 million installs</li>
+            <li>1943 dependants</li>
           </ul>
         </div>
         <div class="fragment">
           <h3>PSR-7</h3>
             <ul>
-              <li>1.4 million installs</li>
-              <li>278 dependants</li>
+              <li>11 million installs</li>
+              <li>711 dependants</li>
               <li>middlewares</li>
             </ul>
         </div>
-        <p class="fragment" style="margin-top: 4em;">(Source, Packagist.org, November 2015)</p>
+        <p class="fragment" style="margin-top: 4em;">(Source, Packagist.org, September 2016)</p>
       </section>
       <section>
         <p class="bigtext">Our biggest success...</p>
