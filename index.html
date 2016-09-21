@@ -712,31 +712,30 @@ $response = $response->withBody($body);
         </aside>
       </section>
       <section>
-        <p class="bigtext">PHP 7 updates coming in PSR-12...</p>
-        <p class="fragment bigtext">(Eventually)</p>
+        <p class="bigtext">PHP 7 updates coming in <a href="https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md">PSR-12</a>...</p>
       </section>
     </section>
     <section class="l-2up">
-      <h2>Upcoming PSRs</h2>
-      <div class="fragment">
-        <h3>"Hard" specs</h3>
-        <ul>
-          <li>PSR-9 (Security Disclosure)</li>
-          <li>PSR-11 (Container)</li>
-        </ul>
-      </div>
-      <div class="fragment">
-        <h3>"Soft" specs</h3>
-        <ul>
-          <li>PSR-10 (Security Advisories)</li>
-          <li>PSR-12 (Coding Styles, again)</li>
-        </ul>
-      </div>
+      <h2>In progress</h2>
+      <ul>
+        <li>PSR-9 (Security Disclosure)</li>
+        <li>PSR-10 (Security Reporting)</li>
+        <li>PSR-11 (Container)</li>
+        <li>PSR-12 (Coding Styles, again)</li>
+        <li>PSR-13 (Hypermedia Links)</li>
+        <li>PSR-14 (Event Dispatcher)</li>
+        <li>PSR-15 (Middlewares)</li>
+        <li>PSR-16 (Simplified Caching)</li>
+        <li>PSR-17 (HTTP Factories)</li>
+      </ul>
     </section>
     <section>
       <section>
         <h2>Security</h2>
-        <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">PSR-9</a> <a href="https://github.com/php-fig/fig-standards/pull/473">PSR-10</a></h3>
+        <h3>
+          <a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-disclosure-publication.md">PSR-9</a>
+          <a href="https://github.com/php-fig/fig-standards/blob/master/proposed/security-reporting-process.md">PSR-10</a>
+        </h3>
       </section>
       <section>
         <h2>Security</h2>
@@ -758,6 +757,7 @@ $response = $response->withBody($body);
           <ul>
             <li>Project publishes feed of SAs</li>
             <li>Anyone can build tools to aggregate, validate, check</li>
+            <li>New Editor, Michael Hess</li>
           </ul>
         </aside>
       </section>
@@ -784,7 +784,6 @@ interface ContainerInterface
     public function has(string $id);
 }
         </code></pre>
-        <p>(So far)</p>
       </section>
       <section>
         <p>For factories and other edge cases</p>
@@ -800,27 +799,58 @@ interface ContainerInterface
     </section>
     <section>
       <section>
+        <h2>Hypermedia Links</h2>
+        <h3><a href="https://github.com/php-fig/fig-standards/blob/master/proposed/links.md">PSR-13</a></h3>
+      </section>
+      <section>
+        <h2>Hypermedia Links</h2>
+        <pre class="font--18"><code class="php" data-trim>
+namespace Psr\Link;
+
+interface LinkInterface
+{
+    public function getHref();
+    public function isTemplated();
+    public function getRels();
+    public function getAttributes();
+}
+        </code></pre>
+        <pre class="font--18"><code class="php" data-trim>
+namespace Psr\Link;
+
+interface LinkCollectionInterface
+{
+    public function getLinks();
+    public function getLinksByRel($rel);
+}
+        </code></pre>
+        <p class="fragment bigtext">Plus evolvable extensions</p>
+        <aside class="notes">
+          <ul>
+            <li>Value objects, a la PSR-7</li>
+            <li>Eg, spawn links off Entity, put on HAL, put on Response</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
         <p class="bigtext">The goal of FIG is to encourage collaboration</p>
         <p class="fragment bigtext">Collaboration builds interoperability</p>
         <p class="fragment bigtext">... and community</p>
       </section>
-      <section class="l-2up">
+      <section>
         <h2>Success</h2>
-        <div class="fragment">
-          <h3>PSR-3</h3>
-          <ul>
-            <li>38 million installs</li>
-            <li>1943 dependants</li>
-          </ul>
-        </div>
-        <div class="fragment">
-          <h3>PSR-7</h3>
-            <ul>
-              <li>11 million installs</li>
-              <li>711 dependants</li>
-              <li>middlewares</li>
-            </ul>
-        </div>
+        <table width="100%">
+          <thead>
+            <tr><th>Spec</th> <th>Downloads</th> <th>Dependants</th></tr>
+          </thead>
+          <tbody>
+            <tr><th><a href="https://packagist.org/packages/psr/log">PSR-3</a></th> <td>38 million</td> <td>1943</td></tr>
+            <tr><th><a href="https://packagist.org/packages/psr/cache">PSR-6</a></th> <td>829,000</td> <td>165</td></tr>
+            <tr><th><a href="https://packagist.org/packages/psr/http-message">PSR-7</a></th> <td>11 million</td> <td>711</td></tr>
+          </tbody>
+        </table>
         <p class="fragment" style="margin-top: 4em;">(Source, Packagist.org, September 2016)</p>
       </section>
       <section>
