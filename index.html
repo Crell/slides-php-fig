@@ -61,7 +61,7 @@
       align-content: center;
     }
 
-    .reveal pre + p {
+    .reveal pre + p, .reveal dl + p {
       margin-top: 1em;
     }
   </style>
@@ -99,7 +99,7 @@
       </div>
     </section>
     <section>
-      <section data-transition="slide-in fade-out">
+      <section>
         <h2>What is PHP-FIG?</h2>
         <a href="https://ninjagrl.com/artwork/fig"><img src="assets/fig-ninjagrlstuff.jpg" alt="The Framework Interoperability Group" data-credit="https://ninjagrl.com/artwork/fig" /></a>
         <div>(Credit: <a href="https://twitter.com/ninjagrlstuff">@ninjagrlstuff</a>)</div>
@@ -114,19 +114,11 @@
           </ul>
         </aside>
       </section>
-      <section data-background="assets/un-flag.svg" data-transition="fade-in fade-out" data-credit="'Flag of the United Nations' by Wilfried Huss / Anonymous - Flag of the United Nations from the Open Clip Art website. Modifications by Denelson83, Zscout370 and Madden. Official construction sheet here.United Nations (1962) The United Nations flag code and regulations, as amended November 11, 1952, New York OCLC: 7548838.. Licensed under Public Domain via Commons - https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Nations.svg#/media/File:Flag_of_the_United_Nations.svg">
-        <div class="vcenter">
-          <img src="assets/php-logo.svg" alt="PHP" data-credit="https://commons.wikimedia.org/wiki/File:PHP-logo.svg" />
-        </div>
-      </section>
-      <section data-transition="fade-in">
-        <blockquote>
-          We're a group of established PHP projects whose goal is to talk about commonalities between our projects and find ways we can work better together.
-        </blockquote>
-        <p>&mdash;PHP-FIG website</p>
-      </section>
     </section>
     <section>
+      <section>
+        <h2>FIG 1.0</h2>
+      </section>
       <section>
         <h2>In the beginning,<br />PHP was without form and void...</h2>
       </section>
@@ -184,35 +176,10 @@
         </aside>
       </section>
       <section>
-        <p>A real process!</p>
-        <p class="fragment">Only took until 2013...</p>
-      </section>
-    </section>
-    <section>
-      <section>
-        <h2>So who are you, exactly?</h2>
-      </section>
-      <section>
-        <p class="bigtext"><q>Projects, not people</q></p>
-        <p class="fragment bigtext">Voted in by current voting reps</p>
-        <p class="bigtext fragment"><a href="http://www.php-fig.org/members/">42 projects</a> and one community busybody</p>
-        <aside class="notes">
-          <ul>
-            <li>Projects apply for membership, with voting representative</li>
-            <li>Most voting reps are project leads, not all (Drupal, Symfony, PHP League, Sculpin)</li>
-            <li>Projects can change voting rep</li>
-            <li>Project reps answerable to project, details vary</li>
-          </ul>
-        </aside>
-      </section>
-      <section>
-        <p class="bigtext">Voting representatives vote</p>
-        <p class="bigtext fragment">Everything else is open to all</p>
-      </section>
-    </section>
-    <section>
-      <section>
-        <h2>So what does FIG, um, do?</h2>
+        <blockquote>
+          We're a group of established PHP projects whose goal is to talk about commonalities between our projects and find ways we can work better together.
+        </blockquote>
+        <p>&mdash;PHP-FIG website</p>
       </section>
       <section>
         <h2>PSR</h2>
@@ -226,10 +193,40 @@
       </section>
     </section>
     <section>
-      <section>
-        <h2>How's it work?</h2>
+      <section data-transition="slide-in fade-out">
+        <h2>FIG 2.0</h2>
+      </section>
+      <section data-background="assets/un-flag.svg" data-transition="fade-in fade-out" data-credit="'Flag of the United Nations' by Wilfried Huss / Anonymous - Flag of the United Nations from the Open Clip Art website. Modifications by Denelson83, Zscout370 and Madden. Official construction sheet here.United Nations (1962) The United Nations flag code and regulations, as amended November 11, 1952, New York OCLC: 7548838.. Licensed under Public Domain via Commons - https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Nations.svg#/media/File:Flag_of_the_United_Nations.svg">
+        <div class="vcenter">
+          <img src="assets/php-logo.svg" alt="PHP" data-credit="https://commons.wikimedia.org/wiki/File:PHP-logo.svg" />
+        </div>
+      </section>
+      <section data-transition="fade-in">
+        <h3>2013</h3>
+        <ul>
+          <li class="fragment"><q>Projects, not people</q></li>
+          <li class="fragment">Quasi-formal working groups (ish)</li>
+        </ul>
       </section>
       <section>
+        <h3>Projects, not people</h3>
+        <p class="fragment bigtext">Voted in by current voting reps</p>
+        <p class="bigtext fragment"><a href="http://www.php-fig.org/members/">38 projects</a></p>
+        <aside class="notes">
+          <ul>
+            <li>Projects apply for membership, with voting representative</li>
+            <li>Most voting reps are project leads, not all (Drupal, Joomla, Sculpin)</li>
+            <li>Projects can change voting rep</li>
+            <li>Project reps answerable to project, details vary</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <p class="bigtext">Voting representatives vote</p>
+        <p class="bigtext fragment">Everything else is open to all</p>
+      </section>
+      <section>
+        <h3>The Process&trade;</h3>
         <div>
           <h3>Pre-Draft</h3>
           <p>Random idea</p>
@@ -265,10 +262,8 @@
           <dt>Contributors</dt>
           <dd>Anyone else</dd>
         </dl>
-        <p class="fragment">And 3 elected Secretaries to do the paperwork</p>
+        <p class="fragment">And 3 elected FIG Secretaries to do the paperwork</p>
       </section>
-    </section>
-    <section>
       <section>
         <h2>Problems</h2>
         <ul>
@@ -281,9 +276,12 @@
           <ul>
             <li>On paper, "just us".</li>
             <li>In practice, interop standards always wide impact</li>
+            <li>Most ppl see FIG as the PHP standards body, effectively</li>
           </ul>
         </aside>
       </section>
+    </section>
+    <section>
       <section>
         <h2>FIG 3.0</h2>
         <h3 class="fragment">In voting now</h3>
@@ -298,6 +296,58 @@
             <li>Larger Working Group, has own vote</li>
           </ul>
         </aside>
+      </section>
+      <section>
+        <h3>Working Group</h3>
+        <dl>
+          <dt>Editor</dt>
+          <dd>Gatekeeper</dd>
+          <dt>Sponsor</dt>
+          <dd>Guidance/Core bridge</dd>
+          <dt>Other contributors (x3)</dt>
+          <dd>Develops spec</dd>
+        </dl>
+      </section>
+      <section>
+        <h3>Core Committee (x12)</h3>
+        <ul>
+          <li class="fragment">Elected</li>
+          <li class="fragment">Not project-based</li>
+          <li class="fragment">Focuses on big picture</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Individuals, not projects</li>
+            <li>Project reps can be just-project, less important</li>
+            <li>Voted by Project reps, and involved people</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>New process</h3>
+        <div style="margin-top: 1em;" class="fragment">
+          <h3>Draft</h3>
+          <p>PSR number assigned</p>
+          <p>WG formed</p>
+        </div>
+        <div style="margin-top: 1em;" class="fragment">
+          <h3>Review</h3>
+          <p>WG votes to promote</p>
+          <p>Actually implement with it</p>
+        </div>
+        <div style="margin-top: 1em;" class="fragment">
+          <h3>Approved</h3>
+          <p>Vote by Core Committee</p>
+        </div>
+        <aside class="notes">
+          <ul>
+            <li>Inspired by IETF</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Will it pass...?</h3>
+        <h3 class="fragment">Vote currently at X:X</h3>
       </section>
     </section>
     <section class="l-2up">
