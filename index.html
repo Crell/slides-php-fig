@@ -459,22 +459,6 @@ class LogLevel
         <p>Based on <a href="http://tools.ietf.org/html/rfc5424">RFC 5424</a></p>
       </section>
       <section>
-        <h3>LoggerAware</h3>
-        <pre class="font--20"><code class="php" data-trim>
-namespace Psr\Log;
-
-interface LoggerAwareInterface
-{
-    public function setLogger(LoggerInterface $logger);
-}
-        </code></pre>
-        <aside class="notes">
-          <ul>
-            <li>Mainly to support auto-wiring</li>
-          </ul>
-        </aside>
-      </section>
-      <section>
         <h3>Context?</h3>
         <p>Extra metadata, including placeholders</p>
         <pre class="font--20 fragment"><code class="php" data-trim>
@@ -1017,7 +1001,7 @@ interface CacheInterface
         </div>
       </section>
       <section>
-        <pre class="font--18"><code class="php" data-trim>
+        <pre class="font--24"><code class="php" data-trim>
 namespace Psr\Hug;
 
 interface Huggable
